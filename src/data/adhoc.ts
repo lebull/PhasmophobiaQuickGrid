@@ -4,8 +4,8 @@ export interface IGhostType {
     name: string,
     description: string,
     testTypes: Array<ITestType>,
-    strengths: Array<IItemType | string>,
-    weaknesses: Array<IItemType | string>,
+    strengths: Array<string>,
+    weaknesses: Array<string>,
     //Aggression,
     //Wander,
     //Territorial
@@ -20,7 +20,11 @@ export interface IItemType {
     name: string,
 }
 
-export const TestTypes = {
+export type ItemType = {
+    name: string
+}
+
+export const TestTypes  = {
     EMF: <ITestType> {
         name: "EMF Over 5",
         description: "EMF has been seen at least once at the maximum level of 5."
@@ -48,13 +52,13 @@ export const TestTypes = {
 };
 
 export const ItemTypes = {
-    SmudgeSticks: <IItemType> {
+    SmudgeSticks: <ItemType> {
         name : "Smudge Sticks",
     },
-    Crusefix: <IItemType> {
+    Crusefix: <ItemType> {
         name : "Crusefix",
     },
-    Salt: <IItemType> {
+    Salt: <ItemType> {
         name : "Salt",
     },
 }
@@ -65,14 +69,14 @@ export const GhostTypes = [
         description: `A Spirit is the most common type of ghost in Phasmophobia. This doesn’t mean it isn’t a handful, however. Players should find Spirits at the sites of their unexplained deaths.`,
         testTypes: [TestTypes.SpiritBox, TestTypes.Fingerprints, TestTypes.GhostWriting],
         strengths: [],
-        weaknesses: [ItemTypes.SmudgeSticks],
+        weaknesses: ["Smudge Sticks"],
     },
     <IGhostType> {
         name: "Wraith",
         description: `A Wraith can fly, meaning you cannot track them with footsteps. Wraiths can travel through walls, too. Have some Salt on you to help with a Wraith attack; Wraiths don’t love Salt.`,
         testTypes: [TestTypes.Fingerprints, TestTypes.Temperature, TestTypes.SpiritBox],
         strengths: ["Cannot be tracked by footsteps"],
-        weaknesses: [ItemTypes.Salt],
+        weaknesses: ["Salt"],
     },
     <IGhostType> {
         name: "Phantom",
