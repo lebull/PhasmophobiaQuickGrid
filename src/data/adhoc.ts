@@ -20,7 +20,7 @@ export interface IItemType {
     name: string,
 }
 
-export const TestTypes  = {
+export const TestTypes = {
     EMF: <ITestType> {
         name: "EMF Over 5",
         description: "EMF has been seen at least once at the maximum level of 5."

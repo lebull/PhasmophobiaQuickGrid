@@ -39,6 +39,12 @@ export const Grid = () => {
         return (remainingTests >= 0);
     });
 
+    let possibleTests = Object.entries(TestTypes)
+        .map(([key, testType]) => testType)
+        .filter(testType => 
+            !state.activeEvidence.find(activeEvidenceTest => activeEvidenceTest === testType)
+        );
+
     return <div>
         <ul>
             { state.activeEvidence.map(testType => <li onClick={()=>selectEvidence(testType)}>{testType.name}</li>) }
@@ -46,13 +52,13 @@ export const Grid = () => {
         <table>
             <thead>
                 <th></th>
-                { Object.entries(TestTypes).map(([key, testType]) => <th key={key} onClick={()=>selectEvidence(testType)}>{testType.name}</th>) }
+                { possibleTests.map(testType => <th key={testType.name} onClick={()=>selectEvidence(testType)}>{testType.name}</th>) }
             </thead>
             {Object.entries(possibleGhosts).map(([key, ghostType]) => { 
                 return(
                     <tr>
                         <td key={key}>{ghostType.name}</td>
-                        { Object.entries(TestTypes).map(([innerKey, testType]) => <td key={`${key}-${innerKey}`}>
+                        { possibleTests.map(testType => <td key={`${testType.name}-${ghostType.name}`}>
                             { ghostType.testTypes.find((ghostTestType) => testType === ghostTestType ) ? "x" : ""}
                         </td>) }
                     </tr>
