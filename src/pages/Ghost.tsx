@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-import { GhostTypes, ItemType } from "../data/adhoc";
+import { GhostTypes } from "../data/adhoc";
 
 export const Ghost = () => {
     
@@ -29,6 +29,13 @@ export const Ghost = () => {
             <h2>Weaknesses</h2>
             <ul>
                  { ghost.weaknesses.map( (weakness, index) => <li key={index}>{weakness}</li> ) }
+            </ul>
+            <p>
+                { ghost.description }
+            </p>
+            <h2>Evidence</h2>
+            <ul>
+                { ghost.testTypes.map((test, index) => <li key={index}>{test.name}</li>) }
             </ul>
         </div>
     );
