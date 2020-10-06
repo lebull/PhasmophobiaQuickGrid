@@ -9,6 +9,7 @@ export interface IGhostType {
     //Aggression,
     //Wander,
     //Territorial
+    //Speed
 }
 
 export interface ITestType {
@@ -114,11 +115,11 @@ export const GhostTypes = [
         weaknesses: ["Light sources (turn the lights on, use torches, etc…)"],
     },
     <IGhostType> {
-        name: "Jinn",
+        name: "Revenant",
         description: `A slow, violent ghost that picks up tremendous speed when hunting its prey. Remember to hide.`,
         testTypes: [TestTypes.EMF, TestTypes.Fingerprints, TestTypes.GhostWriting],
         strengths: ["When hunting a victim, it is quick, faster than anything"],
-        weaknesses: ["Turn off the location’s power source to stop a Jinn from using its ability"],
+        weaknesses: ["Hiding from a Revenant makes it move very slowly"],
     },
     <IGhostType> {
         name: "Shade",
