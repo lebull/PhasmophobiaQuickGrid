@@ -4,17 +4,20 @@ import { GhostTypes, ITestType, TestTypes } from "../data/adhoc";
 export const Grid = () => {
 
     const [state, setState] = useState({
+        filterSelectedTests: false,
         activeEvidence: Array<ITestType>()
     });
 
     const selectEvidence = (testType: ITestType) => {
         if(state.activeEvidence.find(evidenceName => evidenceName === testType)){
             setState({
+                ...state,
                 activeEvidence: state.activeEvidence.filter(evidenceName => evidenceName !== testType)
             });
         } else {
             if(state.activeEvidence.length < 3){
                 setState({
+                    ...state,
                     activeEvidence: [...state.activeEvidence, testType]
                 });
             }
@@ -40,10 +43,14 @@ export const Grid = () => {
     });
 
     let possibleTests = Object.entries(TestTypes)
-        .map(([key, testType]) => testType)
-        .filter(testType => 
+        .map(([key, testType]) => testType);
+
+    if(state.filterSelectedTests) {
+        possibleTests = possibleTests.filter(testType => 
             !state.activeEvidence.find(activeEvidenceTest => activeEvidenceTest === testType)
         );
+    }
+
 
     return <div>
         <ul>
