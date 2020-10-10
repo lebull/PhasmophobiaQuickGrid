@@ -8,7 +8,7 @@ var Header = function () {
         react_1["default"].createElement("div", { className: "navbar-brand" },
             react_1["default"].createElement("a", { className: "navbar-item", href: "https://bulma.io" },
                 react_1["default"].createElement("img", { src: "https://bulma.io/images/bulma-logo.png", alt: "logo", width: "112", height: "28" })),
-            react_1["default"].createElement("a", { role: "button", className: "navbar-burger burger", "aria-label": "menu", "aria-expanded": "false", "data-target": "navbarBasicExample" },
+            react_1["default"].createElement("button", { className: "navbar-burger burger", "aria-label": "menu", "aria-expanded": "false", "data-target": "navbarBasicExample" },
                 react_1["default"].createElement("span", { "aria-hidden": "true" }),
                 react_1["default"].createElement("span", { "aria-hidden": "true" }),
                 react_1["default"].createElement("span", { "aria-hidden": "true" }))),

@@ -22,8 +22,6 @@ export const KnockoutTests = ({activeEvidence, onSelectTest} : IKnockoutTestsPro
         if(!possibleTests.includes(testType)){
             return "is-disabled";
         }
-
-
         return "is-primary";
     }
 
