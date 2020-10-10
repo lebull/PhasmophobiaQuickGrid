@@ -10,19 +10,14 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import { Layout } from './layout/Layout';
 
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-
+        <Layout>
           <Switch>
             <Route path="/ghost/:name">
               <Ghost />
@@ -31,7 +26,7 @@ function App() {
               <Home />
             </Route>
           </Switch>
-        </div>
+        </Layout>
       </Router>
     </div>
   );
