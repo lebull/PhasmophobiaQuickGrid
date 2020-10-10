@@ -58,20 +58,17 @@ export const KnockoutList = () => {
         return state.activeEvidence.includes(testType) ? "is-success" : "is-primary";
     }
 
-    return <div>
+    return <div className="block">
         <div className="tile is-ancestor">
-            <div className="tile is-4 is-vertical">
+            <div className="tile is-4 is-vertical is-child">
                 {Object.entries(TestTypes).map(([key, testType]) => 
-
-                        <button className={`button is-large is-fullwidth ${ getTestButtonClass(testType) }`}
-                                onClick={() => selectEvidence(testType)}>
-                            { testType.name }
-                        </button>
-            
+                    <button className={`button is-large is-fullwidth ${ getTestButtonClass(testType) }`}
+                            onClick={() => selectEvidence(testType)}>
+                        { testType.name }
+                    </button>
                 )}
             </div>
-            <div className="tile">GhostTypes</div>
-
+            <div className="tile is-parent">GhostTypes</div>
         </div>
     </div>
 }

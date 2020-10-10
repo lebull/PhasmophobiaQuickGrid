@@ -5,7 +5,7 @@ import { KnockoutList } from "./KnockoutList";
 
 export const Home = () => {
 
-    return <div>
+    return <div className="panel">
         {/* <h1>Ghosts:</h1>
         <ul>
             { Object.entries(GhostTypes).map(([key, ghostType]) => {

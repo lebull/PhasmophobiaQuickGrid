@@ -65,11 +65,11 @@ exports.KnockoutList = function () {
         }
         return state.activeEvidence.includes(testType) ? "is-success" : "is-primary";
     };
-    return react_1["default"].createElement("div", null,
+    return react_1["default"].createElement("div", { className: "block" },
         react_1["default"].createElement("div", { className: "tile is-ancestor" },
-            react_1["default"].createElement("div", { className: "tile is-4 is-vertical" }, Object.entries(adhoc_1.TestTypes).map(function (_a) {
+            react_1["default"].createElement("div", { className: "tile is-4 is-vertical is-child" }, Object.entries(adhoc_1.TestTypes).map(function (_a) {
                 var key = _a[0], testType = _a[1];
                 return react_1["default"].createElement("button", { className: "button is-large is-fullwidth " + getTestButtonClass(testType), onClick: function () { return selectEvidence(testType); } }, testType.name);
             })),
-            react_1["default"].createElement("div", { className: "tile" }, "GhostTypes")));
+            react_1["default"].createElement("div", { className: "tile is-parent" }, "GhostTypes")));
 };

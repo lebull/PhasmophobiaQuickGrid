@@ -30,6 +30,8 @@ interface ILayoutProps {
 export const Layout = ({ children } : ILayoutProps) => 
     <div>
         <Header/>
-        { children }
+        <div className="container">
+            { children }
+        </div>
         <div>Footer</div>
     </div>  

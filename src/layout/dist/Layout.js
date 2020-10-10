@@ -20,6 +20,6 @@ exports.Layout = function (_a) {
     var children = _a.children;
     return react_1["default"].createElement("div", null,
         react_1["default"].createElement(Header, null),
-        children,
+        react_1["default"].createElement("div", { className: "container" }, children),
         react_1["default"].createElement("div", null, "Footer"));
 };
