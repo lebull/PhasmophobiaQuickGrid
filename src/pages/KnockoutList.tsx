@@ -1,10 +1,50 @@
 import React, { useState } from "react";
 import { GhostTypes, ITestType, TestTypes } from "../data/adhoc";
 
+interface IKnockoutTestsProps {
+    activeEvidence: Array<ITestType>;
+    onSelectTest(testType: ITestType) : void;
+}
+
+export const KnockoutTests = ({activeEvidence, onSelectTest} : IKnockoutTestsProps) => {
+    let possibleTests = Object.entries(TestTypes)
+        .map(([key, testType]) => testType)
+        .filter((testType: ITestType) => 
+            !activeEvidence.find((activeEvidenceTest: ITestType) => activeEvidenceTest === testType)
+        );
+
+    const getTestButtonClass = (testType: ITestType) => {
+
+        if(activeEvidence.includes(testType)){
+            return "is-success";
+        }
+
+        if(!possibleTests.includes(testType)){
+            return "is-disabled";
+        }
+
+
+        return "is-primary";
+    }
+
+    return (
+        <div className="tile is-4 is-vertical is-child">
+            {Object.entries(TestTypes).map(([key, testType]) => 
+                <button className={`button is-large is-fullwidth ${ getTestButtonClass(testType) }`}
+                        onClick={() => onSelectTest(testType)}>
+                    { testType.name }
+                </button>
+            )}
+        </div>
+    )
+}
+
 export const KnockoutList = () => {
 
     const [state, setState] = useState({
-        filterSelectedTests: false,
+        config: {
+            filterSelectedTests: false,
+        },
         activeEvidence: Array<ITestType>()
     });
 
@@ -42,32 +82,9 @@ export const KnockoutList = () => {
         return (remainingTests >= 0);
     });
 
-    let possibleTests = Object.entries(TestTypes)
-        .map(([key, testType]) => testType);
-
-    if(state.filterSelectedTests) {
-        possibleTests = possibleTests.filter(testType => 
-            !state.activeEvidence.find(activeEvidenceTest => activeEvidenceTest === testType)
-        );
-    }
-
-    const getTestButtonClass = (testType: ITestType) => {
-        if(!possibleTests.includes(testType)){
-            return "is-disabled"
-        }
-        return state.activeEvidence.includes(testType) ? "is-success" : "is-primary";
-    }
-
     return <div className="block">
         <div className="tile is-ancestor">
-            <div className="tile is-4 is-vertical is-child">
-                {Object.entries(TestTypes).map(([key, testType]) => 
-                    <button className={`button is-large is-fullwidth ${ getTestButtonClass(testType) }`}
-                            onClick={() => selectEvidence(testType)}>
-                        { testType.name }
-                    </button>
-                )}
-            </div>
+            <KnockoutTests activeEvidence={state.activeEvidence} onSelectTest={selectEvidence} />
             <div className="tile is-parent">GhostTypes</div>
         </div>
     </div>

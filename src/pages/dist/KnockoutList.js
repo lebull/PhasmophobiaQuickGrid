@@ -18,12 +18,38 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 exports.__esModule = true;
-exports.KnockoutList = void 0;
+exports.KnockoutList = exports.KnockoutTests = void 0;
 var react_1 = require("react");
 var adhoc_1 = require("../data/adhoc");
+exports.KnockoutTests = function (_a) {
+    var activeEvidence = _a.activeEvidence, onSelectTest = _a.onSelectTest;
+    var possibleTests = Object.entries(adhoc_1.TestTypes)
+        .map(function (_a) {
+        var key = _a[0], testType = _a[1];
+        return testType;
+    })
+        .filter(function (testType) {
+        return !activeEvidence.find(function (activeEvidenceTest) { return activeEvidenceTest === testType; });
+    });
+    var getTestButtonClass = function (testType) {
+        if (activeEvidence.includes(testType)) {
+            return "is-success";
+        }
+        if (!possibleTests.includes(testType)) {
+            return "is-disabled";
+        }
+        return "is-primary";
+    };
+    return (react_1["default"].createElement("div", { className: "tile is-4 is-vertical is-child" }, Object.entries(adhoc_1.TestTypes).map(function (_a) {
+        var key = _a[0], testType = _a[1];
+        return react_1["default"].createElement("button", { className: "button is-large is-fullwidth " + getTestButtonClass(testType), onClick: function () { return onSelectTest(testType); } }, testType.name);
+    })));
+};
 exports.KnockoutList = function () {
     var _a = react_1.useState({
-        filterSelectedTests: false,
+        config: {
+            filterSelectedTests: false
+        },
         activeEvidence: Array()
     }), state = _a[0], setState = _a[1];
     var selectEvidence = function (testType) {
@@ -49,27 +75,8 @@ exports.KnockoutList = function () {
         });
         return (remainingTests >= 0);
     });
-    var possibleTests = Object.entries(adhoc_1.TestTypes)
-        .map(function (_a) {
-        var key = _a[0], testType = _a[1];
-        return testType;
-    });
-    if (state.filterSelectedTests) {
-        possibleTests = possibleTests.filter(function (testType) {
-            return !state.activeEvidence.find(function (activeEvidenceTest) { return activeEvidenceTest === testType; });
-        });
-    }
-    var getTestButtonClass = function (testType) {
-        if (!possibleTests.includes(testType)) {
-            return "is-disabled";
-        }
-        return state.activeEvidence.includes(testType) ? "is-success" : "is-primary";
-    };
     return react_1["default"].createElement("div", { className: "block" },
         react_1["default"].createElement("div", { className: "tile is-ancestor" },
-            react_1["default"].createElement("div", { className: "tile is-4 is-vertical is-child" }, Object.entries(adhoc_1.TestTypes).map(function (_a) {
-                var key = _a[0], testType = _a[1];
-                return react_1["default"].createElement("button", { className: "button is-large is-fullwidth " + getTestButtonClass(testType), onClick: function () { return selectEvidence(testType); } }, testType.name);
-            })),
+            react_1["default"].createElement(exports.KnockoutTests, { activeEvidence: state.activeEvidence, onSelectTest: selectEvidence }),
             react_1["default"].createElement("div", { className: "tile is-parent" }, "GhostTypes")));
 };
