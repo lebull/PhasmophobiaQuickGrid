@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { GhostTypes, IGhostType, ITestType, TestTypes } from "../data/adhoc";
+import { GhostType, TestType, GhostTypes, TestTypes } from "../data/adhoc";
 
 interface IKnockoutTestListProps {
-    activeEvidence: Array<ITestType>;
-    onSelectTest(testType: ITestType) : void;
+    activeEvidence: Array<TestType>;
+    onSelectTest(testType: TestType) : void;
     className?: string;
 }
 
 export const KnockoutTestList = ({activeEvidence, onSelectTest, className} : IKnockoutTestListProps) => {
     let possibleTests = Object.entries(TestTypes)
         .map(([key, testType]) => testType)
-        .filter((testType: ITestType) => 
-            !activeEvidence.find((activeEvidenceTest: ITestType) => activeEvidenceTest === testType)
+        .filter((testType: TestType) => 
+            !activeEvidence.find((activeEvidenceTest: TestType) => activeEvidenceTest === testType)
         );
 
-    const getTestButtonClass = (testType: ITestType) => {
+    const getTestButtonClass = (testType: TestType) => {
 
         if(activeEvidence.includes(testType)){
             return "is-success";
@@ -44,12 +44,12 @@ interface IKnockoutGhostListProps {
 
 const KnockoutGhostList = ({className}: IKnockoutGhostListProps) => {
     return <div className={className}>
-        {GhostTypes.map((ghostType: IGhostType) => <KnockoutGhost ghostType={ghostType} />)}
+        {GhostTypes.map((ghostType: GhostType) => <KnockoutGhost ghostType={ghostType} />)}
     </div>
 }
 
 interface IKnockoutGhostProps {
-    ghostType: IGhostType
+    ghostType: GhostType
 }
 
 const KnockoutGhost = ({ghostType} : IKnockoutGhostProps) => {
@@ -64,10 +64,10 @@ export const KnockoutList = () => {
         config: {
             filterSelectedTests: false,
         },
-        activeEvidence: Array<ITestType>()
+        activeEvidence: Array<TestType>()
     });
 
-    const selectEvidence = (testType: ITestType) => {
+    const selectEvidence = (testType: TestType) => {
         if(state.activeEvidence.find(evidenceName => evidenceName === testType)){
             setState({
                 ...state,
@@ -103,8 +103,8 @@ export const KnockoutList = () => {
 
     return <div className="block">
         <div className="columns">
-            <KnockoutTestList className="column is-one-third" activeEvidence={state.activeEvidence} onSelectTest={selectEvidence} />
-            <KnockoutGhostList className="column is-two-thirds"/>
+            <KnockoutTestList className="column is-one-quarter" activeEvidence={state.activeEvidence} onSelectTest={selectEvidence} />
+            <KnockoutGhostList className="column is-two-quarters"/>
         </div>
     </div>
 }
