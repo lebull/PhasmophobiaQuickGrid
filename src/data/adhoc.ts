@@ -1,18 +1,5 @@
-/* eslint-disable @typescript-eslint/consistent-type-assertions */
+import {TestType, GhostType} from "./types";
 
-export type GhostType = {
-    name: string;
-    description: string;
-    testTypes: Array<TestType>;
-    strengths: Array<string>;
-    weaknesses: Array<string>;
-}
-
-export type TestType = {
-    name: string;
-    description: string;
-    icon?: string;
-}
 
 export interface IItemType {
     name: string,

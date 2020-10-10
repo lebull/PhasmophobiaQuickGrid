@@ -1,5 +1,5 @@
 import React from "react";
-import { Knockout } from "./Knockout";
+import { Knockout } from "./Knockout/Knockout";
 
 export const Home = () => {
 
