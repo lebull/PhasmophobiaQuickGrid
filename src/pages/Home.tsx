@@ -1,7 +1,7 @@
 import React from "react";
-import { KnockoutList } from "./KnockoutList";
+import { Knockout } from "./Knockout";
 
 export const Home = () => {
 
-    return <KnockoutList />;
+    return <Knockout />;
 }
