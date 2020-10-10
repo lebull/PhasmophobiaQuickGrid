@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GhostTypes, ITestType, TestTypes } from "../data/adhoc";
 
-export const Grid = () => {
+export const KnockoutList = () => {
 
     const [state, setState] = useState({
         filterSelectedTests: false,
@@ -51,28 +51,27 @@ export const Grid = () => {
         );
     }
 
+    const getTestButtonClass = (testType: ITestType) => {
+        if(!possibleTests.includes(testType)){
+            return "is-disabled"
+        }
+        return state.activeEvidence.includes(testType) ? "is-success" : "is-primary";
+    }
 
     return <div>
-        <ul>
-            { state.activeEvidence.map(testType => <li onClick={()=>selectEvidence(testType)}>{testType.name}</li>) }
-        </ul>
-        <table>
-            <thead>
-                <th></th>
-                { possibleTests.map(testType => <th key={testType.name} onClick={()=>selectEvidence(testType)}>{testType.name}</th>) }
-            </thead>
-            {Object.entries(possibleGhosts).map(([key, ghostType]) => { 
-                return(
-                    <tr>
-                        <td key={key}>{ghostType.name}</td>
-                        { possibleTests.map(testType => <td key={`${testType.name}-${ghostType.name}`}>
-                            { ghostType.testTypes.find((ghostTestType) => testType === ghostTestType ) ? "x" : ""}
-                        </td>) }
-                    </tr>
-                )
-            })}
-        </table>
-    </div>
+        <div className="tile is-ancestor">
+            <div className="tile is-4 is-vertical">
+                {Object.entries(TestTypes).map(([key, testType]) => 
 
-    
+                        <button className={`button is-large is-fullwidth ${ getTestButtonClass(testType) }`}
+                                onClick={() => selectEvidence(testType)}>
+                            { testType.name }
+                        </button>
+            
+                )}
+            </div>
+            <div className="tile">GhostTypes</div>
+
+        </div>
+    </div>
 }
