@@ -1,6 +1,7 @@
 import React from "react";
 import { TestType } from "../../data/types";
 import { TestTypes } from "../../data/adhoc";
+import { getPossibleTestsFromActiveTests } from "./Helpers";
 
 interface IKnockoutTestListProps {
     activeTests: Array<TestType>;
@@ -9,11 +10,8 @@ interface IKnockoutTestListProps {
 }
 
 export const KnockoutTestList = ({activeTests, onSelectTest, className} : IKnockoutTestListProps) => {
-    let possibleTests = Object.entries(TestTypes)
-        .map(([key, testType]) => testType)
-        .filter((testType: TestType) => 
-            !activeTests.find((activeTest: TestType) => activeTest === testType)
-        );
+    
+    let possibleTests = getPossibleTestsFromActiveTests(activeTests);
 
     const getTestButtonClass = (testType: TestType) => {
         if(activeTests.includes(testType)){

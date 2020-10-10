@@ -8,7 +8,7 @@ export interface IKnockoutGhostListProps {
 }
 
 export const KnockoutGhostList = ({className}: IKnockoutGhostListProps) => {
-    return <div className={className}>
+    return <div className={`columns is-multiline ${className}`}>
         { GhostTypes.map((ghostType: GhostType) => <KnockoutGhost ghostType={ghostType} />) }
     </div>
 }
@@ -18,7 +18,9 @@ interface IKnockoutGhostProps {
 }
 
 const KnockoutGhost = ({ghostType} : IKnockoutGhostProps) => {
-    return <div className="box">
-        <h3 className="title is-3">{ghostType.name}</h3>
+    return <div className="column is-one-third card">
+        <div className="card-content">
+            <h4 className="title is-4">{ghostType.name}</h4>
+        </div>
     </div>
 }

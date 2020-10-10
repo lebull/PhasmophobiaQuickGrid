@@ -22,9 +22,24 @@ export const getPossibleGhostTypesFromActiveTests = (activeTests: Array<TestType
     });
 
 
-export const getPossibleTestsFromActiveTests = (activeTests: Array<TestType>) => 
-    Object.entries(TestTypes)
+export const getPossibleTestsFromActiveTests = (activeTests: Array<TestType>) => {
+
+    if(activeTests.length >= 3) {
+        return [];
+    }
+
+    if(activeTests.length > 0) {
+        let possibleGhosts = getPossibleGhostTypesFromActiveTests(activeTests);
+        let possibleTests = new Set<TestType>();
+        possibleGhosts.forEach( ghost => 
+            ghost.testTypes.forEach(test => possibleTests.add(test)))
+        return Array.from(possibleTests.values());
+    }
+
+
+    return Object.entries(TestTypes)
         .map(([key, testType]) => testType)
         .filter((testType: TestType) => 
             !activeTests.find((activeTest: TestType) => activeTest === testType)
         );
+}

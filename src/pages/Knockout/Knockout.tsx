@@ -3,7 +3,6 @@ import { TestType } from "../../data/types";
 import { KnockoutGhostList } from "./KnockoutGhostList";
 import { KnockoutTestList } from "./KnockoutTestList";
 
-
 export const Knockout = () => {
 
     const [state, setState] = useState({
