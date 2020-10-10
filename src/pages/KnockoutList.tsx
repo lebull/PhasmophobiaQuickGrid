@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { GhostTypes, ITestType, TestTypes } from "../data/adhoc";
+import { GhostTypes, IGhostType, ITestType, TestTypes } from "../data/adhoc";
 
-interface IKnockoutTestsProps {
+interface IKnockoutTestListProps {
     activeEvidence: Array<ITestType>;
     onSelectTest(testType: ITestType) : void;
 }
 
-export const KnockoutTests = ({activeEvidence, onSelectTest} : IKnockoutTestsProps) => {
+export const KnockoutTestList = ({activeEvidence, onSelectTest} : IKnockoutTestListProps) => {
     let possibleTests = Object.entries(TestTypes)
         .map(([key, testType]) => testType)
         .filter((testType: ITestType) => 
@@ -35,6 +35,26 @@ export const KnockoutTests = ({activeEvidence, onSelectTest} : IKnockoutTestsPro
             )}
         </div>
     )
+}
+
+interface IKnockoutGhostListProps {
+
+}
+
+const KnockoutGhostList = () => {
+    return <div>
+        {GhostTypes.map((ghostType: IGhostType) => <KnockoutGhost ghostType={ghostType} />)}
+    </div>
+}
+
+interface IKnockoutGhostProps {
+    ghostType: IGhostType
+}
+
+const KnockoutGhost = ({ghostType} : IKnockoutGhostProps) => {
+    return <div>
+        {ghostType.name}
+    </div>
 }
 
 export const KnockoutList = () => {
@@ -82,8 +102,8 @@ export const KnockoutList = () => {
 
     return <div className="block">
         <div className="tile is-ancestor">
-            <KnockoutTests activeEvidence={state.activeEvidence} onSelectTest={selectEvidence} />
-            <div className="tile is-parent">GhostTypes</div>
+            <KnockoutTestList activeEvidence={state.activeEvidence} onSelectTest={selectEvidence} />
+            <div className="tile is-parent"><KnockoutGhostList /></div>
         </div>
     </div>
 }
