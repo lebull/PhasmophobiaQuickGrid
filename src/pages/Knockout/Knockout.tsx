@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { TestType } from "../../data/types";
-import { GhostTypes, TestTypes } from "../../data/adhoc";
 import { KnockoutGhostList } from "./KnockoutGhostList";
 import { KnockoutTestList } from "./KnockoutTestList";
 

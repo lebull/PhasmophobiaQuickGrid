@@ -16,11 +16,9 @@ export const KnockoutTestList = ({activeTests, onSelectTest, className} : IKnock
         );
 
     const getTestButtonClass = (testType: TestType) => {
-
         if(activeTests.includes(testType)){
             return "is-success";
         }
-
         if(!possibleTests.includes(testType)){
             return "is-disabled";
         }

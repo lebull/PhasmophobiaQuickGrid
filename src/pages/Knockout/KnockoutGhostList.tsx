@@ -9,7 +9,7 @@ export interface IKnockoutGhostListProps {
 
 export const KnockoutGhostList = ({className}: IKnockoutGhostListProps) => {
     return <div className={className}>
-        {GhostTypes.map((ghostType: GhostType) => <KnockoutGhost ghostType={ghostType} />)}
+        { GhostTypes.map((ghostType: GhostType) => <KnockoutGhost ghostType={ghostType} />) }
     </div>
 }
 

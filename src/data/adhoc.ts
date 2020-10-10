@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
+
 import {TestType, GhostType} from "./types";
 
 
