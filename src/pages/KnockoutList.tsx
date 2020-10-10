@@ -4,9 +4,10 @@ import { GhostTypes, IGhostType, ITestType, TestTypes } from "../data/adhoc";
 interface IKnockoutTestListProps {
     activeEvidence: Array<ITestType>;
     onSelectTest(testType: ITestType) : void;
+    className?: string;
 }
 
-export const KnockoutTestList = ({activeEvidence, onSelectTest} : IKnockoutTestListProps) => {
+export const KnockoutTestList = ({activeEvidence, onSelectTest, className} : IKnockoutTestListProps) => {
     let possibleTests = Object.entries(TestTypes)
         .map(([key, testType]) => testType)
         .filter((testType: ITestType) => 
@@ -26,7 +27,7 @@ export const KnockoutTestList = ({activeEvidence, onSelectTest} : IKnockoutTestL
     }
 
     return (
-        <div className="tile is-4 is-vertical is-child">
+        <div className={className}>
             {Object.entries(TestTypes).map(([key, testType]) => 
                 <button className={`button is-large is-fullwidth ${ getTestButtonClass(testType) }`}
                         onClick={() => onSelectTest(testType)}>
@@ -38,11 +39,11 @@ export const KnockoutTestList = ({activeEvidence, onSelectTest} : IKnockoutTestL
 }
 
 interface IKnockoutGhostListProps {
-
+    className?: string;
 }
 
-const KnockoutGhostList = () => {
-    return <div>
+const KnockoutGhostList = ({className}: IKnockoutGhostListProps) => {
+    return <div className={className}>
         {GhostTypes.map((ghostType: IGhostType) => <KnockoutGhost ghostType={ghostType} />)}
     </div>
 }
@@ -52,8 +53,8 @@ interface IKnockoutGhostProps {
 }
 
 const KnockoutGhost = ({ghostType} : IKnockoutGhostProps) => {
-    return <div>
-        {ghostType.name}
+    return <div className="box">
+        <h3 className="title is-3">{ghostType.name}</h3>
     </div>
 }
 
@@ -82,28 +83,28 @@ export const KnockoutList = () => {
         }
     }
 
-    let possibleGhosts = GhostTypes.filter((ghostType) => {
-        if(!state.activeEvidence){
-            return true;
-        }
+    // let possibleGhosts = GhostTypes.filter((ghostType) => {
+    //     if(!state.activeEvidence){
+    //         return true;
+    //     }
 
-        //TODO: Reduce this shit please
+    //     //TODO: Reduce this shit please
 
-        let remainingTests =  3 - state.activeEvidence.length;
+    //     let remainingTests =  3 - state.activeEvidence.length;
 
-        ghostType.testTypes.forEach(testType => {
-            if(!state.activeEvidence.find( activeEvidenceTestType => activeEvidenceTestType === testType )){
-                remainingTests--;
-            }
-        });
+    //     ghostType.testTypes.forEach(testType => {
+    //         if(!state.activeEvidence.find( activeEvidenceTestType => activeEvidenceTestType === testType )){
+    //             remainingTests--;
+    //         }
+    //     });
 
-        return (remainingTests >= 0);
-    });
+    //     return (remainingTests >= 0);
+    // });
 
     return <div className="block">
-        <div className="tile is-ancestor">
-            <KnockoutTestList activeEvidence={state.activeEvidence} onSelectTest={selectEvidence} />
-            <div className="tile is-parent"><KnockoutGhostList /></div>
+        <div className="columns">
+            <KnockoutTestList className="column is-one-third" activeEvidence={state.activeEvidence} onSelectTest={selectEvidence} />
+            <KnockoutGhostList className="column is-two-thirds"/>
         </div>
     </div>
 }
