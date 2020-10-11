@@ -2,9 +2,8 @@
   "name": "phasmophobiaquickgrid",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://emffive.com",
+  "homepage": "https://lebull.github.io/PhasmophobiaQuickGrid",
   "dependencies": {
-    "@analytics/google-analytics": "^0.5.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
@@ -17,7 +16,6 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
-    "analytics": "^0.5.5",
     "bulma": "^0.9.1",
     "bulmaswatch": "^0.8.1",
     "node-sass": "^4.14.1",
