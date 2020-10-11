@@ -1,10 +1,14 @@
 // import { faGhost } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header = () =>
-    <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+const Header = () => {
+
+    const [active, setActive] = useState(false)
+    const toggleMenu = () => setActive(!active);
+
+    return(<nav className="navbar is-dark" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
             <a className="navbar-item px-i" href="/">
                 <img src="/android-chrome-192x192.png" alt="logo"></img>
@@ -14,18 +18,16 @@ const Header = () =>
                 <h4 className="title is-4 px-2">EMFFive.com</h4>
             </a>
 
-            <button className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <div className={`navbar-burger burger ${active ? "is-active" : ""}`} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={toggleMenu}>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
-            </button>
+            </div>
         </div>
 
-        <div id="navbarBasicExample" className="navbar-menu">
+        <div id="navbarBasicExample" className={`navbar-menu ${active ? "is-active" : ""}`}>
             <div className="navbar-start">
                 <Link  to="/" className="navbar-item" />
-
-     
 
                 {/* <a className="navbar-item">
                     Documentation
@@ -70,7 +72,8 @@ const Header = () =>
                 </div> */}
             </div>
         </div>
-    </nav>
+    </nav>)
+}
 
 
 interface ILayoutProps {
@@ -80,8 +83,10 @@ interface ILayoutProps {
 export const Layout = ({ children } : ILayoutProps) => 
     <div>
         <Header/>
-        <div className="container m-5">
-            { children }
+        <div className="content">
+            <div className="container m-5">
+                { children }
+            </div>
         </div>
         {/* <div>Footer</div> */}
     </div>  
