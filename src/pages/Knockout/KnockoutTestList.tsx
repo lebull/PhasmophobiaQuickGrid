@@ -27,7 +27,8 @@ export const KnockoutTestList = ({activeTests, onSelectTest, className} : IKnock
         <div className={className}>
             {Object.entries(TestTypes).map(([key, testType]) => 
                 <button className={`button is-large is-fullwidth my-1 ${ getTestButtonClass(testType) }`}
-                        onClick={() => onSelectTest(testType)}>
+                        onClick={() => onSelectTest(testType)}
+                        disabled={getTestButtonClass(testType) === "is-disabled"}>
                     { testType.name }
                 </button>
             )}
