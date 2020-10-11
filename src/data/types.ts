@@ -1,3 +1,5 @@
+import { FontawesomeObject, IconDefinition, IconProp } from "@fortawesome/fontawesome-svg-core"
+
 export type GhostType = {
     name: string;
     description: string;
@@ -9,5 +11,5 @@ export type GhostType = {
 export type TestType = {
     name: string;
     description: string;
-    icon?: string;
+    icon: IconProp;
 }

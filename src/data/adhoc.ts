@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 
+import { faBolt, faBookOpen, faFingerprint, faTemperatureLow, faVideo, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import {TestType, GhostType} from "./types";
 
 
@@ -13,28 +14,34 @@ export type ItemType = {
 
 export const TestTypes  = {
     EMF: <TestType> {
-        name: "EMF Over 5",
-        description: "EMF has been seen at least once at the maximum level of 5."
+        name: "EMF Level 5",
+        description: "EMF has been seen at least once at the maximum level of 5.",
+        icon: faBolt,
     },
     Temperature: <TestType> {
         name: "Temperature",
-        description: "Temperature has been seen below 0degC."
+        description: "Temperature has been seen below 0degC.",
+        icon: faTemperatureLow,
     },
     Fingerprints: <TestType> {
-        name: "FingerPrints",
-        description: "Fingerprints have been seen on walls, doors, or objects.  Footprints do NOT count."
+        name: "Fingerprints",
+        description: "Fingerprints have been seen on walls, doors, or objects.  Footprints do NOT count.",
+        icon: faFingerprint,
     },
     SpiritBox: <TestType> {
-        name: "SpiritBox",
-        description: "A voice has been heard on a SpiritBox."
+        name: "Spirit Box",
+        description: "A voice has been heard on a SpiritBox.",
+        icon: faVolumeUp,
     },
     GhostOrbs: <TestType> {
-        name: "GhostOrbs",
-        description: "Ghostorbs have been seen in nightvision video."
+        name: "Ghost Orbs",
+        description: "Ghostorbs have been seen in nightvision video.",
+        icon: faVideo,
     },
     GhostWriting: <TestType> {
         name: "Ghost Writing",
-        description: "Writing has been observed in a ghost writing book"
+        description: "Writing has been observed in a ghost writing book",
+        icon: faBookOpen,
     }
 };
 
