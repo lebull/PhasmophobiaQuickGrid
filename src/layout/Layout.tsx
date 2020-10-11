@@ -18,7 +18,12 @@ const Header = () => {
                 <h4 className="title is-4 px-2">EMFFive.com</h4>
             </a>
 
-            <div className={`navbar-burger burger ${active ? "is-active" : ""}`} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={toggleMenu}>
+            <div className={`navbar-burger burger is-clickable ${active ? "is-active" : ""}`} 
+                    aria-label="menu" 
+                    aria-expanded="false" 
+                    data-target="navbarBasicExample" 
+                    onClick={toggleMenu}
+            >
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
