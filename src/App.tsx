@@ -5,30 +5,34 @@ import { Ghost } from "./pages/Ghost";
 import { Home } from "./pages/Home";
 
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
+  BrowserRouter,
 } from "react-router-dom";
 import { Layout } from './layout/Layout';
+import { useTracking } from './hooks/useTracking';
 
 
-function App() {
+export const App = () => {
+  useTracking();
   return (
     <div className="App">
-      <Router>
-        <Layout>
-          <Switch>
-            <Route path="/ghost/:name">
-              <Ghost />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Layout>
-      </Router>
+      <Layout>
+        <Switch>
+          <Route path="/ghost/:name">
+            <Ghost />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Layout>
     </div>
   );
 }
 
-export default App;
+export default () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
