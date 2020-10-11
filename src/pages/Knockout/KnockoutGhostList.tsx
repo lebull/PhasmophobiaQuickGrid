@@ -14,8 +14,9 @@ export const KnockoutGhostList = ({activeTests, className}: IKnockoutGhostListPr
     let possibleGhosts = getPossibleGhostTypesFromActiveTests(activeTests);
 
     return <div className={`columns is-multiline ${className}`}>
-        { GhostTypes.map((ghostType: GhostType) => 
+        { GhostTypes.map((ghostType: GhostType, index: number) => 
             <KnockoutGhost 
+                key={index}
                 ghostType={ghostType}
                 activeTests={activeTests}
                 disabled={!possibleGhosts.includes(ghostType)}
@@ -36,8 +37,8 @@ const KnockoutGhost = ({ghostType, activeTests, disabled=false} : IKnockoutGhost
             <h4 className="title is-4">{ghostType.name}</h4>
             <p>{ghostType.description}</p>
             <div className="level is-mobile">
-                {ghostType.testTypes.map(testType => 
-                    <span className={`level-item icon is-large ${activeTests.includes(testType) ? "has-text-dark" : "has-text-warning"}`}>
+                {ghostType.testTypes.map((testType: TestType, index: number) => 
+                    <span key={index} className={`level-item icon is-large ${activeTests.includes(testType) ? "has-text-dark" : "has-text-warning"}`}>
                         <FontAwesomeIcon icon={testType.icon} size="lg" />
                     </span>
                 )}
