@@ -39,7 +39,7 @@ const KnockoutGhost = ({ghostType, activeTests, disabled=false} : IKnockoutGhost
             <div className="level is-mobile">
                 {ghostType.testTypes.map((testType: TestType, index: number) => 
                     <span key={index} className={`level-item icon is-large ${activeTests.includes(testType) ? "has-text-dark" : "has-text-warning"}`}>
-                        <FontAwesomeIcon icon={testType.icon} size="lg" />
+                        <FontAwesomeIcon icon={testType.icon} size="2x" />
                     </span>
                 )}
             </div>
