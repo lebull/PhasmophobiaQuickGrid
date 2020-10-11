@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Header = () =>
     <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-            <a className="navbar-item" href="https://bulma.io">
+            <a className="navbar-item px-i" href="/">
             {/* <img src="https://bulma.io/images/bulma-logo.png" alt="logo" width="112" height="28"></img> */}
                 <span className="icon">
                     <FontAwesomeIcon icon={faGhost} size="2x" />
