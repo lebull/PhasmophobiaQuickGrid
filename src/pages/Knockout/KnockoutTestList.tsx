@@ -4,6 +4,8 @@ import { TestTypes } from "../../data/adhoc";
 import { getPossibleTestsFromActiveTests } from "./Helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import styled from "styled-components";
+
 interface IKnockoutTestListProps {
     activeTests: Array<TestType>;
     onSelectTest(testType: TestType) : void;
@@ -24,10 +26,14 @@ export const KnockoutTestList = ({activeTests, onSelectTest, className} : IKnock
         return "is-primary";
     }
 
+    const TestButton = styled.button`
+        justify-content: flex-start
+    `;
+
     return (
         <div className={className}>
             {Object.entries(TestTypes).map(([key, testType]) => 
-                <button key={key} className={`button is-large is-fullwidth my-1 has-text-left ${ getTestButtonClass(testType) }`}
+                <TestButton key={key} className={`button is-large is-fullwidth my-1 has-text-left ${ getTestButtonClass(testType) }`}
                         onClick={() => onSelectTest(testType)}
                         disabled={getTestButtonClass(testType) === "is-disabled"}>
                     <span className="icon is-small">
@@ -36,7 +42,7 @@ export const KnockoutTestList = ({activeTests, onSelectTest, className} : IKnock
                     <span>
                         { testType.name }
                     </span>
-                </button>
+                </TestButton>
             )}
         </div>
     )

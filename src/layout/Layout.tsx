@@ -2,6 +2,7 @@
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Header = () => {
 
@@ -85,13 +86,20 @@ interface ILayoutProps {
     children: any;
 }
 
-export const Layout = ({ children } : ILayoutProps) => 
-    <div>
+export const Layout = ({ children } : ILayoutProps) => {
+    const Content = styled.div`
+        display: flex;
+        justify-content: center;
+    `;
+    return(<div>
         <Header/>
-        <div className="content">
+        <Content className="content">
             <div className="container m-5">
                 { children }
             </div>
-        </div>
+        </Content>
         {/* <div>Footer</div> */}
-    </div>  
+    </div>);
+
+}
+
