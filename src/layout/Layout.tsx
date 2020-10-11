@@ -61,13 +61,13 @@ const Header = () =>
                     </a>
                 </div>
 
-                <div className="navbar-item">
+                {/* <div className="navbar-item">
                     <div className="buttons">
                         <a className="button is-primary">
                             <strong>Buy me a Coffee</strong>
                         </a>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     </nav>
