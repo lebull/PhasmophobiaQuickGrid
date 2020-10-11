@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 
-import { faBoxOpen, faFingerprint, faPen, faSun, faTemperatureLow } from "@fortawesome/free-solid-svg-icons";
+import { faBolt, faBoxOpen, faFingerprint, faPen, faSun, faTemperatureLow } from "@fortawesome/free-solid-svg-icons";
 import {TestType, GhostType} from "./types";
 
 
@@ -16,7 +16,7 @@ export const TestTypes  = {
     EMF: <TestType> {
         name: "EMF Over 5",
         description: "EMF has been seen at least once at the maximum level of 5.",
-        icon: faBoxOpen,
+        icon: faBolt,
     },
     Temperature: <TestType> {
         name: "Temperature",
