@@ -2,6 +2,7 @@ import React from "react";
 import { TestType } from "../../data/types";
 import { TestTypes } from "../../data/adhoc";
 import { getPossibleTestsFromActiveTests } from "./Helpers";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface IKnockoutTestListProps {
     activeTests: Array<TestType>;
@@ -26,10 +27,15 @@ export const KnockoutTestList = ({activeTests, onSelectTest, className} : IKnock
     return (
         <div className={className}>
             {Object.entries(TestTypes).map(([key, testType]) => 
-                <button className={`button is-large is-fullwidth my-1 ${ getTestButtonClass(testType) }`}
+                <button className={`button is-large is-fullwidth my-1 has-text-left ${ getTestButtonClass(testType) }`}
                         onClick={() => onSelectTest(testType)}
                         disabled={getTestButtonClass(testType) === "is-disabled"}>
-                    { testType.name }
+                    <span className="icon is-small">
+                        <FontAwesomeIcon icon={testType.icon} />
+                    </span>
+                    <span>
+                        { testType.name }
+                    </span>
                 </button>
             )}
         </div>

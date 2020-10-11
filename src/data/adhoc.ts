@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 
+import { faBoxOpen, faFingerprint, faPen, faSun, faTemperatureLow } from "@fortawesome/free-solid-svg-icons";
 import {TestType, GhostType} from "./types";
 
 
@@ -14,27 +15,33 @@ export type ItemType = {
 export const TestTypes  = {
     EMF: <TestType> {
         name: "EMF Over 5",
-        description: "EMF has been seen at least once at the maximum level of 5."
+        description: "EMF has been seen at least once at the maximum level of 5.",
+        icon: faBoxOpen,
     },
     Temperature: <TestType> {
         name: "Temperature",
-        description: "Temperature has been seen below 0degC."
+        description: "Temperature has been seen below 0degC.",
+        icon: faTemperatureLow,
     },
     Fingerprints: <TestType> {
         name: "FingerPrints",
-        description: "Fingerprints have been seen on walls, doors, or objects.  Footprints do NOT count."
+        description: "Fingerprints have been seen on walls, doors, or objects.  Footprints do NOT count.",
+        icon: faFingerprint,
     },
     SpiritBox: <TestType> {
         name: "SpiritBox",
-        description: "A voice has been heard on a SpiritBox."
+        description: "A voice has been heard on a SpiritBox.",
+        icon: faBoxOpen,
     },
     GhostOrbs: <TestType> {
         name: "GhostOrbs",
-        description: "Ghostorbs have been seen in nightvision video."
+        description: "Ghostorbs have been seen in nightvision video.",
+        icon: faSun,
     },
     GhostWriting: <TestType> {
         name: "Ghost Writing",
-        description: "Writing has been observed in a ghost writing book"
+        description: "Writing has been observed in a ghost writing book",
+        icon: faPen,
     }
 };
 
