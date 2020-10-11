@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 
-import { faBolt, faBoxOpen, faFingerprint, faPen, faSun, faTemperatureLow } from "@fortawesome/free-solid-svg-icons";
+import { faBolt, faBoxOpen, faDotCircle, faFingerprint, faPen, faSun, faTemperatureLow, faVideo, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 import {TestType, GhostType} from "./types";
 
 
@@ -31,12 +31,12 @@ export const TestTypes  = {
     SpiritBox: <TestType> {
         name: "SpiritBox",
         description: "A voice has been heard on a SpiritBox.",
-        icon: faBoxOpen,
+        icon: faVolumeUp,
     },
     GhostOrbs: <TestType> {
         name: "GhostOrbs",
         description: "Ghostorbs have been seen in nightvision video.",
-        icon: faSun,
+        icon: faVideo,
     },
     GhostWriting: <TestType> {
         name: "Ghost Writing",

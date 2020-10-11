@@ -35,7 +35,7 @@ const KnockoutGhost = ({ghostType, activeTests, disabled=false} : IKnockoutGhost
         <div className="box is-primary is-fullwidth">
             <h4 className="title is-4">{ghostType.name}</h4>
             <p>{ghostType.description}</p>
-            <div className="level">
+            <div className="level is-mobile">
                 {ghostType.testTypes.map(testType => 
                     <span className={`level-item icon is-large ${activeTests.includes(testType) ? "has-text-dark" : "has-text-success"}`}>
                         <FontAwesomeIcon icon={testType.icon} size="lg" />
