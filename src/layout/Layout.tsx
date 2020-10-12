@@ -1,3 +1,6 @@
+import { faGithub, faSteam } from "@fortawesome/free-brands-svg-icons";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faGhost } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
@@ -9,21 +12,18 @@ const Header = () => {
     const [active, setActive] = useState(false)
     const toggleMenu = () => setActive(!active);
 
-    return(<nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+    return (<nav className="navbar is-dark" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
             <a className="navbar-item px-i" href="/">
                 <img src="/android-chrome-192x192.png" alt="logo"></img>
-                {/* <span className="icon">
-                    <FontAwesomeIcon icon={faGhost} size="2x" />
-                </span> */}
                 <h4 className="title is-4 px-2">EMFFive.com</h4>
             </a>
 
-            <div className={`navbar-burger burger is-clickable ${active ? "is-active" : ""}`} 
-                    aria-label="menu" 
-                    aria-expanded="false" 
-                    data-target="navbarBasicExample" 
-                    onClick={toggleMenu}
+            <div className={`navbar-burger burger is-clickable ${active ? "is-active" : ""}`}
+                aria-label="menu"
+                aria-expanded="false"
+                data-target="navbarBasicExample"
+                onClick={toggleMenu}
             >
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -33,7 +33,7 @@ const Header = () => {
 
         <div id="navbarBasicExample" className={`navbar-menu ${active ? "is-active" : ""}`}>
             <div className="navbar-start">
-                <Link  to="/" className="navbar-item" />
+                <Link to="/" className="navbar-item" />
 
                 {/* <a className="navbar-item">
                     Documentation
@@ -62,14 +62,22 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 <div className="navbar-item">
+                    <a href="https://github.com/lebull/PhasmophobiaQuickGrid" className="navbar-item">
+                        <FontAwesomeIcon icon={faGithub} size="2x" />
+                        <span className="px-3">Contribute to this site</span>
+                    </a>
+                </div>
+                <div className="navbar-item">
                     <a href="https://store.steampowered.com/app/739630/Phasmophobia/" className="navbar-item">
-                        Buy Phasmophobia on Steam
+                        <FontAwesomeIcon icon={faSteam} size="2x" />
+                        <span className="px-3">Phasmophobia Store Page</span>
                     </a>
                 </div>
                 <div className="navbar-item">
                     <div className="buttons">
                         <a className="button is-primary" href="https://www.buymeacoffee.com/windythedeer" target="_blank" rel="noopener noreferrer">
-                            Buy Me a Coffee
+                            <FontAwesomeIcon icon={faCoffee} />
+                            <span className="px-3">Buy Me a Coffee</span>
                         </a>
                     </div>
                 </div>
@@ -83,16 +91,16 @@ interface ILayoutProps {
     children: any;
 }
 
-export const Layout = ({ children } : ILayoutProps) => {
+export const Layout = ({ children }: ILayoutProps) => {
     const Content = styled.div`
         display: flex;
         justify-content: center;
     `;
-    return(<div>
-        <Header/>
+    return (<div>
+        <Header />
         <Content className="content">
             <div className="container m-5">
-                { children }
+                {children}
             </div>
         </Content>
         {/* <div>Footer</div> */}
