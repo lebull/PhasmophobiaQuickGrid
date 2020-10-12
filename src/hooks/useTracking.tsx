@@ -30,9 +30,10 @@ export const useTracking = (
         )
         return
       }
+      analytics.page();
+    });
+
     analytics.page();
-    //   window.gtag('config', trackingId, { page_path: location.pathname })
-    })
 
     return unlisten
   }, [trackingId, listen])
