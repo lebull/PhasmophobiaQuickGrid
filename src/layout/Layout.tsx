@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { GhostTypes } from "../data/adhoc";
+import { GhostType } from "../data/types";
 
 const Header = () => {
 
@@ -35,44 +37,48 @@ const Header = () => {
             <div className="navbar-start">
                 <Link to="/" className="navbar-item" />
 
-                {/* <a className="navbar-item">
-                    Documentation
-                </a>
+                <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                        Ghosts
+                    </div>
+                    <div className="navbar-dropdown">
+                        {GhostTypes.map((ghostType: GhostType) => 
+                            <Link to={`/ghost/${ghostType.name}`} className="navbar-item">
+                                {ghostType.name}
+                            </Link>
+                        )}
+                    </div>
+                </div>
 
                 <div className="navbar-item has-dropdown is-hoverable">
-                    <a className="navbar-link">
-                        Ghosts
-                    </a>
+                    <div className="navbar-link">
+                        About
+                    </div>
                     <div className="navbar-dropdown">
+                        <a href="https://store.steampowered.com/app/739630/Phasmophobia/" className="navbar-item">
+                            <FontAwesomeIcon icon={faSteam} size="lg" />
+                            <span className="px-3">Phasmophobia Steam Page</span>
+                        </a>
+                        <a href="https://github.com/lebull/PhasmophobiaQuickGrid" className="navbar-item">
+                            <FontAwesomeIcon icon={faGithub} size="lg" />
+                            <span className="px-3">Contribute to This Site</span>
+                        </a>
+                        {/* <hr className="navbar-divider" />
                         <a className="navbar-item">
-                            About
+                            Terms of Service
                         </a>
                         <a className="navbar-item">
-                            Jobs
+                            Privacy Policy
                         </a>
-                        <a className="navbar-item">
-                            Contact
-                        </a>
-                        <hr className="navbar-divider" />
                         <a className="navbar-item">
                             Report an issue
-                        </a>
+                        </a> */}
                     </div>
-                </div> */}
+                </div>
+
+
             </div>
             <div className="navbar-end">
-                <div className="navbar-item">
-                    <a href="https://github.com/lebull/PhasmophobiaQuickGrid" className="navbar-item">
-                        <FontAwesomeIcon icon={faGithub} size="2x" />
-                        <span className="px-3">Contribute to this site</span>
-                    </a>
-                </div>
-                <div className="navbar-item">
-                    <a href="https://store.steampowered.com/app/739630/Phasmophobia/" className="navbar-item">
-                        <FontAwesomeIcon icon={faSteam} size="2x" />
-                        <span className="px-3">Phasmophobia Store Page</span>
-                    </a>
-                </div>
                 <div className="navbar-item">
                     <div className="buttons">
                         <a className="button is-primary" href="https://www.buymeacoffee.com/windythedeer" target="_blank" rel="noopener noreferrer">
