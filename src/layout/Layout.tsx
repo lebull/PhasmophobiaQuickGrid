@@ -60,22 +60,19 @@ const Header = () => {
                     </div>
                 </div> */}
             </div>
-
             <div className="navbar-end">
-
                 <div className="navbar-item">
                     <a href="https://store.steampowered.com/app/739630/Phasmophobia/" className="navbar-item">
                         Buy Phasmophobia on Steam
                     </a>
                 </div>
-
-                {/* <div className="navbar-item">
+                <div className="navbar-item">
                     <div className="buttons">
-                        <a className="button is-primary">
-                            <strong>Buy me a Coffee</strong>
+                        <a className="button is-primary" href="https://www.buymeacoffee.com/windythedeer" target="_blank" rel="noopener noreferrer">
+                            Buy Me a Coffee
                         </a>
                     </div>
-                </div> */}
+                </div>
             </div>
         </div>
     </nav>)
