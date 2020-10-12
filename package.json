@@ -2,7 +2,7 @@
   "name": "phasmophobiaquickgrid",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lebull.github.io/PhasmophobiaQuickGrid",
+  "homepage": "https://www.emffive.com/",
   "dependencies": {
     "@analytics/google-analytics": "^0.5.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
