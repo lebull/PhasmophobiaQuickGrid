@@ -1,9 +1,8 @@
-<p style="text-align:center;">
-  <img src="https://raw.githubusercontent.com/lebull/PhasmophobiaQuickGrid/main/public/android-chrome-512x512.png" alt="logo" />
+![EMF Five](https://raw.githubusercontent.com/lebull/PhasmophobiaQuickGrid/main/public/android-chrome-512x512.png)
+# EMF Five
+## Alternative lookup and guide for Phasmophobia
 
-  <h1>EMF Five</h1>
-  <h2>Alternative lookup and guide for Phasmophobia</h2>
-</p>
+* Live Site: https://www.emffive.com/
 
 ---
 
