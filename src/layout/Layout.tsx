@@ -1,29 +1,31 @@
+import { faGithub, faSteam } from "@fortawesome/free-brands-svg-icons";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faGhost } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { GhostTypes } from "../data/adhoc";
+import { GhostType } from "../data/types";
 
 const Header = () => {
 
     const [active, setActive] = useState(false)
     const toggleMenu = () => setActive(!active);
 
-    return(<nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+    return (<nav className="navbar is-dark" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
             <a className="navbar-item px-i" href="/">
                 <img src="/android-chrome-192x192.png" alt="logo"></img>
-                {/* <span className="icon">
-                    <FontAwesomeIcon icon={faGhost} size="2x" />
-                </span> */}
                 <h4 className="title is-4 px-2">EMFFive.com</h4>
             </a>
 
-            <div className={`navbar-burger burger is-clickable ${active ? "is-active" : ""}`} 
-                    aria-label="menu" 
-                    aria-expanded="false" 
-                    data-target="navbarBasicExample" 
-                    onClick={toggleMenu}
+            <div className={`navbar-burger burger is-clickable ${active ? "is-active" : ""}`}
+                aria-label="menu"
+                aria-expanded="false"
+                data-target="navbarBasicExample"
+                onClick={toggleMenu}
             >
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -33,43 +35,57 @@ const Header = () => {
 
         <div id="navbarBasicExample" className={`navbar-menu ${active ? "is-active" : ""}`}>
             <div className="navbar-start">
-                <Link  to="/" className="navbar-item" />
-
-                {/* <a className="navbar-item">
-                    Documentation
-                </a>
+                <Link to="/" className="navbar-item">
+                    Home
+                </Link>
 
                 <div className="navbar-item has-dropdown is-hoverable">
-                    <a className="navbar-link">
+                    <div className="navbar-link">
                         Ghosts
-                    </a>
+                    </div>
                     <div className="navbar-dropdown">
+                        {GhostTypes.map((ghostType: GhostType) => 
+                            <Link to={`/ghost/${ghostType.name}`} className="navbar-item">
+                                {ghostType.name}
+                            </Link>
+                        )}
+                    </div>
+                </div>
+
+                <div className="navbar-item has-dropdown is-hoverable">
+                    <div className="navbar-link">
+                        About
+                    </div>
+                    <div className="navbar-dropdown">
+                        <a href="https://store.steampowered.com/app/739630/Phasmophobia/" className="navbar-item">
+                            <FontAwesomeIcon icon={faSteam} size="lg" />
+                            <span className="px-3">Phasmophobia Steam Page</span>
+                        </a>
+                        <a href="https://github.com/lebull/PhasmophobiaQuickGrid" className="navbar-item">
+                            <FontAwesomeIcon icon={faGithub} size="lg" />
+                            <span className="px-3">Contribute to This Site</span>
+                        </a>
+                        {/* <hr className="navbar-divider" />
                         <a className="navbar-item">
-                            About
+                            Terms of Service
                         </a>
                         <a className="navbar-item">
-                            Jobs
+                            Privacy Policy
                         </a>
-                        <a className="navbar-item">
-                            Contact
-                        </a>
-                        <hr className="navbar-divider" />
                         <a className="navbar-item">
                             Report an issue
-                        </a>
+                        </a> */}
                     </div>
-                </div> */}
+                </div>
+
+
             </div>
             <div className="navbar-end">
                 <div className="navbar-item">
-                    <a href="https://store.steampowered.com/app/739630/Phasmophobia/" className="navbar-item">
-                        Buy Phasmophobia on Steam
-                    </a>
-                </div>
-                <div className="navbar-item">
                     <div className="buttons">
                         <a className="button is-primary" href="https://www.buymeacoffee.com/windythedeer" target="_blank" rel="noopener noreferrer">
-                            Buy Me a Coffee
+                            <FontAwesomeIcon icon={faCoffee} />
+                            <span className="px-3">Buy Me a Coffee</span>
                         </a>
                     </div>
                 </div>
@@ -83,16 +99,16 @@ interface ILayoutProps {
     children: any;
 }
 
-export const Layout = ({ children } : ILayoutProps) => {
+export const Layout = ({ children }: ILayoutProps) => {
     const Content = styled.div`
         display: flex;
         justify-content: center;
     `;
-    return(<div>
-        <Header/>
+    return (<div>
+        <Header />
         <Content className="content">
             <div className="container m-5">
-                { children }
+                {children}
             </div>
         </Content>
         {/* <div>Footer</div> */}
