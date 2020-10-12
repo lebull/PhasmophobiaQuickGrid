@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import googleAnalytics from './googleAnalytics';
 
 
-let GaTrackingId = process.env.GA_MEASUREMENT_ID;
+let GaTrackingId = process.env.REACT_APP_GA_MEASUREMENT_ID;
 
 const analytics = Analytics({
     app: 'emf-five',
@@ -26,7 +26,7 @@ export const useTracking = (
     //   if (!window.gtag) return
       if (!trackingId) {
         console.log(
-          'Tracking not enabled, as `trackingId` was not given and there is no `GA_MEASUREMENT_ID`.'
+          'Tracking not enabled, as `trackingId` was not given and there is no `REACT_APP_GA_MEASUREMENT_ID`.'
         )
         return
       }
