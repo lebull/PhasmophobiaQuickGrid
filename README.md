@@ -1,3 +1,12 @@
+<p style="text-align:center;">
+  <img src="https://raw.githubusercontent.com/lebull/PhasmophobiaQuickGrid/main/public/android-chrome-512x512.png" alt="logo" />
+
+  <h1>EMF Five</h1>
+  <h2>Alternative lookup and guide for Phasmophobia</h2>
+</p>
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
