@@ -38,14 +38,13 @@ const Header = () => {
                 <Link to="/" className="navbar-item">
                     Home
                 </Link>
-
                 <div className="navbar-item has-dropdown is-hoverable">
                     <div className="navbar-link">
                         Ghosts
                     </div>
                     <div className="navbar-dropdown">
-                        {GhostTypes.map((ghostType: GhostType) => 
-                            <Link to={`/ghost/${ghostType.name}`} className="navbar-item">
+                        {GhostTypes.map((ghostType: GhostType, index: number) => 
+                            <Link key={index} to={`/ghost/${ghostType.name}`} className="navbar-item">
                                 {ghostType.name}
                             </Link>
                         )}
