@@ -34,7 +34,7 @@ export const Ghost = () => {
                         <div className="block">
                             <h2>Strengths</h2>
                             <ul>
-                                {ghost.weaknesses.map((weakness, index) => { debugger; return <li key={index}>{weakness}</li>; })}
+                                {ghost.strengths.map((weakness, index) => { debugger; return <li key={index}>{weakness}</li>; })}
                             </ul>
                         </div>
                         <div className="block">
