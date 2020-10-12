@@ -28,9 +28,14 @@
 // Import only what you need from Bulma
 
 
+$primary: #3643d4;
+
+
+
 @import '../node_modules/bulmaswatch/darkly/variables';
 
-$primary: #3643d4;
+$navbar-background-color: $grey-dark;
+$navbar-dropdown-background-color: $grey-dark;
 
 @import '../node_modules/bulma/bulma.sass';
 @import '../node_modules/bulmaswatch/darkly/overrides';
