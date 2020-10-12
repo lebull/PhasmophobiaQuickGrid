@@ -18,7 +18,7 @@ const Header = () => {
         <div className="navbar-brand">
             <a className="navbar-item px-i" href="/">
                 <img src="/android-chrome-192x192.png" alt="logo"></img>
-                <h4 className="title is-4 px-2">EMFFive.com</h4>
+                <h4 className="title is-4 px-2">EMF Five</h4>
             </a>
 
             <div className={`navbar-burger burger is-clickable ${active ? "is-active" : ""}`}
