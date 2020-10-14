@@ -9,7 +9,14 @@ export interface IItemType {
 }
 
 export type ItemType = {
-    name: string
+    name: string,
+    usage: string,
+    tips: Array<string>,
+    categories: Array<ItemCategoryType>,
+}
+
+export type ItemCategoryType = {
+    name: string,
 }
 
 export const TestTypes  = {
@@ -45,15 +52,116 @@ export const TestTypes  = {
     }
 };
 
+export const ItemCategories = {
+    Illumination: {
+        name: "Illumintation"
+    },
+    Measurement: {
+        name: "Illumintation"
+    },
+    Monitoring: {
+        name: "Monitoring"
+    },
+    Defence: {
+        name: "Defence"
+    },
+    Utility: {
+        name: "Utility"
+    },
+}
+
 export const ItemTypes = {
+    EMFReader: <ItemType> {
+        name : "EMF Reader",
+        usage : "Detect EMF Disturbances",
+        categories: [ItemCategories.Measurement],
+
+    },
+    FlashLight: <ItemType> {
+        name : "FlashLight",
+        usage : "Provide Illumination",
+        categories: [ItemCategories.Measurement],
+    },
+    Candle: <ItemType> {
+        name : "FlashLight",
+        usage : "Provide Illumination",
+        categories: [ItemCategories.Illumination],
+    },
+    Lighter: <ItemType> {
+        name : "FlashLight",
+        usage : "Light Candles and smudgesticks",
+        categories: [ItemCategories.Utility],
+    },
     SmudgeSticks: <ItemType> {
         name : "Smudge Sticks",
+        usage: "Clense an area",
+        categories: [ItemCategories.Measurement],
     },
-    Crusefix: <ItemType> {
-        name : "Crusefix",
+    Crucifix: <ItemType> {
+        name : "Crucifix",
+        usage : "Prevent Haunts",
+        categories: [ItemCategories.Measurement],
+    },
+    WritingBook: <ItemType> {
+        name : "Writing Book",
+        usage : "Detect Ghost Writing",
+        categories: [ItemCategories.Measurement],
+    },
+    SpiritBox: <ItemType> {
+        name : "Writing Book",
+        usage : "Detect Ghost Writing",
+        categories: [ItemCategories.Measurement],
     },
     Salt: <ItemType> {
         name : "Salt",
+        usage : "Detect footsteps from ghosts",
+        categories: [ItemCategories.Defence],
+    },
+    UVLight: <ItemType> {
+        name : "UV Light",
+        usage: "Detect fingerprints and footprints",
+        categories: [ItemCategories.Illumination, ItemCategories.Measurement],
+    },
+    VideoCamera: <ItemType> {
+        name: "Video Camera",
+        usage: "Send Visible or Infradred video to the truck monitor",
+        categories: [ItemCategories.Monitoring],
+    },
+    Tripod: <ItemType> {
+        name: "Tripod",
+        usage: "Provides a platform to mount a video camera.",
+        categories: [ItemCategories.Utility],
+    },
+    PhotoCamera: <ItemType> {
+        name: "PhotoCamera",
+        usage: "Taking pictures of evidence will result in monitary reward when the round completes",
+        categories: [ItemCategories.Utility],
+    },
+    MotionSensor: <ItemType> {
+        name: "Motion Sensor",
+        usage: "Illuminates an area when motion is dectected in front of it",
+        categories: [ItemCategories.Monitoring],
+    },
+    IRSensor: <ItemType> {
+        name: "Infrared Sensor",
+        usage: "Reports if a beam in front of it has been broken",
+        categories: [ItemCategories.Monitoring],
+    },
+    SoundSensor: <ItemType> {
+        name: "Tripod",
+        usage: "Provides a platform to mount a video camera",
+        categories: [ItemCategories.Monitoring],
+    },
+    ParabolicMicrophone: <ItemType> {
+        name: "Parabolic Microphone",
+        usage: "Detects sounds sources that come from a beam in front of the microphone",
+        categories: [ItemCategories.Monitoring],
+
+    },
+    GlowStick: <ItemType> {
+        name: "GlowStick",
+        usage: "Casts a low UV light",
+        categories: [ItemCategories.Illumination, ItemCategories.Measurement],
     },
 }
 
