@@ -3,6 +3,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core"
 export type GhostType = {
     name: string;
     description: string;
+    summary: string;
     testTypes: Array<TestType>;
     strengths: Array<string>;
     weaknesses: Array<string>;

@@ -3,6 +3,7 @@ import { GhostType, TestType } from "../../data/types";
 import { GhostTypes } from "../../data/adhoc";
 import { getPossibleGhostTypesFromActiveTests } from "./Helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
 
 export interface IKnockoutGhostListProps {
     activeTests: Array<TestType>;
@@ -32,10 +33,21 @@ interface IKnockoutGhostProps {
 }
 
 const KnockoutGhost = ({ghostType, activeTests, disabled=false} : IKnockoutGhostProps) => {
-    return <div className={`column is-one-third-desktop is-one-half-tablet ${disabled? "is-hidden" : ""}`}>
-        <div className="box is-primary is-fullwidth">
+
+    const GhostTile = styled.div`
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    `;
+
+    const GhostTileInfo = styled.p`
+        flex-grow: 1;
+    `;
+
+    return <div className={`column is-4-desktop is-6-tablet ${disabled? "is-hidden" : ""}`}>
+        <GhostTile className="box is-primary is-fullwidth">
             <h4 className="title is-4">{ghostType.name}</h4>
-            <p>{ghostType.description}</p>
+            <GhostTileInfo>{ghostType.summary}</GhostTileInfo>
             <div className="level is-mobile">
                 {ghostType.testTypes.map((testType: TestType, index: number) => 
                     <span key={index} className={`level-item icon is-large ${activeTests.includes(testType) ? "has-text-dark" : "has-text-warning"}`}>
@@ -43,6 +55,6 @@ const KnockoutGhost = ({ghostType, activeTests, disabled=false} : IKnockoutGhost
                     </span>
                 )}
             </div>
-        </div>
+        </GhostTile>
     </div>
 }
