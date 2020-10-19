@@ -44,17 +44,24 @@ const KnockoutGhost = ({ghostType, activeTests, disabled=false} : IKnockoutGhost
         flex-grow: 1;
     `;
 
+    const GhostIconLevel = styled.footer`
+        //border-top: solid 1px rgba(255, 255, 255, 0.1);
+    `;
+
+
     return <div className={`column is-4-desktop is-6-tablet ${disabled? "is-hidden" : ""}`}>
-        <GhostTile className="box is-primary is-fullwidth">
-            <h4 className="title is-4">{ghostType.name}</h4>
-            <GhostTileInfo>{ghostType.summary}</GhostTileInfo>
-            <div className="level is-mobile">
+        <GhostTile className="card is-primary is-fullwidth">
+            <header className="card-header"> <h2 className="is-2 card-header-title">{ghostType.name}</h2></header>
+            
+            <GhostTileInfo className="card-content">{ghostType.summary}</GhostTileInfo>
+
+            <GhostIconLevel className="level is-mobile card-footer">
                 {ghostType.testTypes.map((testType: TestType, index: number) => 
                     <span key={index} className={`level-item icon is-large ${activeTests.includes(testType) ? "has-text-dark" : "has-text-warning"}`}>
                         <FontAwesomeIcon icon={testType.icon} size="2x" />
                     </span>
                 )}
-            </div>
+            </GhostIconLevel>
         </GhostTile>
     </div>
 }
