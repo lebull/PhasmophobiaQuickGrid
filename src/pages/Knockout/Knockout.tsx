@@ -30,8 +30,8 @@ export const Knockout = () => {
 
     return <div className="block">
         <div className="columns">
-            <KnockoutTestList className="column is-one-quarter" activeTests={state.activeTests} onSelectTest={selectTest} />
-            <KnockoutGhostList className="column is-two-quarters" activeTests={state.activeTests}/>
+            <KnockoutTestList className="column is-one-quarter-desktop is-one-third-tablet" activeTests={state.activeTests} onSelectTest={selectTest} />
+            <KnockoutGhostList className="column is-two-quarters-desktop is-two-thirds-tablet" activeTests={state.activeTests}/>
         </div>
     </div>
 }
