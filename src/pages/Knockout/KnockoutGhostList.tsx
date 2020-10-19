@@ -55,7 +55,7 @@ const KnockoutGhost = ({ghostType, activeTests, disabled=false} : IKnockoutGhost
             
             <GhostTileInfo className="card-content">{ghostType.summary}</GhostTileInfo>
 
-            <GhostIconLevel className="level is-mobile card-footer">
+            <GhostIconLevel className="level is-mobile card-footer py-2">
                 {ghostType.testTypes.map((testType: TestType, index: number) => 
                     <span key={index} className={`level-item icon is-large ${activeTests.includes(testType) ? "has-text-dark" : "has-text-warning"}`}>
                         <FontAwesomeIcon icon={testType.icon} size="2x" />
