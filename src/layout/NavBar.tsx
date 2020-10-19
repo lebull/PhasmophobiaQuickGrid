@@ -6,6 +6,22 @@ import { Link } from "react-router-dom";
 import { GhostTypes } from "../data/adhoc";
 import { GhostType } from "../data/types";
 
+interface INavbarSectionProps {
+    title: string,
+    children: any
+}
+
+export const NavbarSection = ({title, children} : INavbarSectionProps) => {
+    return <div className={`navbar-item has-dropdown is-hoverable`}>
+        <div className="navbar-link">
+            {title}
+        </div>
+        <div className="navbar-dropdown">
+            {children}
+        </div>
+    </div>
+}
+
 export const Navbar = () => {
 
     const [active, setActive] = useState(false)
@@ -32,24 +48,20 @@ export const Navbar = () => {
 
     <div id="navbarBasicExample" className={`navbar-menu ${active ? "is-active" : ""}`}>
         <div className="navbar-start">
-            <Link to="/" className="navbar-item">
+            <Link to="/" className="navbar-item" onClick={toggleMenu}>
                 Home
             </Link>
-            <div className="navbar-item has-dropdown is-hoverable">
-                <div className="navbar-link">
-                    Ghosts
-                </div>
-                <div className="navbar-dropdown">
-                    {GhostTypes.map((ghostType: GhostType, index: number) => 
-                        <Link key={index} to={`/ghost/${ghostType.name}`} className="navbar-item">
-                            {ghostType.name}
-                        </Link>
-                    )}
-                </div>
-            </div>
+
+            <NavbarSection title="Ghosts">
+                {GhostTypes.map((ghostType: GhostType, index: number) => 
+                    <Link key={index} to={`/ghost/${ghostType.name}`} className="navbar-item" onClick={toggleMenu}>
+                        {ghostType.name}
+                    </Link>
+                )}
+            </NavbarSection>
 
             <div className="navbar-item has-dropdown is-hoverable">
-                <Link to={`/items`} className="navbar-item">
+                <Link to={`/items`} className="navbar-item" onClick={toggleMenu}>
                     Items
                 </Link>
             </div>
