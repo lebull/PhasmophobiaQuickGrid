@@ -55,15 +55,8 @@ export const Ghost = () => {
                             )}
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
-
-
-
-
         </div>
     );
 };

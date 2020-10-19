@@ -1,23 +1,8 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 
 import { faBolt, faBookOpen, faDotCircle, faFingerprint, faTemperatureLow, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
-import {TestType, GhostType} from "./types";
+import {TestType, GhostType, ItemType} from "./types";
 
-
-export interface IItemType {
-    name: string,
-}
-
-export type ItemType = {
-    name: string,
-    usage: string,
-    tips: Array<string>,
-    categories: Array<ItemCategoryType>,
-}
-
-export type ItemCategoryType = {
-    name: string,
-}
 
 export const TestTypes  = {
     EMF: <TestType> {

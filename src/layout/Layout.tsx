@@ -52,6 +52,12 @@ const Header = () => {
                 </div>
 
                 <div className="navbar-item has-dropdown is-hoverable">
+                    <Link to={`/items`} className="navbar-item">
+                        Items
+                    </Link>
+                </div>
+
+                <div className="navbar-item has-dropdown is-hoverable">
                     <div className="navbar-link">
                         About
                     </div>
