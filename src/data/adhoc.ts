@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
-
-import { faBolt, faBookOpen, faDotCircle, faFingerprint, faTemperatureLow, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
-import {TestType, GhostType, ItemType} from "./types";
+import { faBolt, faBookOpen, faDotCircle, faEnvelope, faFingerprint, faTemperatureLow, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import {TestType, GhostType, ItemType, ContactType} from "./types";
 
 
 export const TestTypes  = {
@@ -251,5 +250,14 @@ export const GhostTypes = [
         testTypes: [TestTypes.EMF, TestTypes.SpiritBox, TestTypes.GhostWriting],
         strengths: ["More active when players are nearby", "Can move objects at great speed"],
         weaknesses: ["More active players will make an Oni easier to find and identify"],
+    },
+];
+
+export const ContactLinks: Array<ContactType> = [
+    {
+        type: "Email",
+        text: "bulldogboy912000@yahoo.com",
+        link: "mailto:bulldogboy912000@yahoo.com",
+        icon: faEnvelope,
     },
 ];

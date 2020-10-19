@@ -4,6 +4,7 @@ import './App.scss';
 import { Items } from "./pages/Items";
 import { Ghost } from "./pages/Ghost";
 import { Home } from "./pages/Home";
+import { Contacts } from "./pages/Contact";
 
 import {
   Switch,
@@ -20,6 +21,9 @@ export const App = () => {
     <div className="App">
       <Layout>
         <Switch>
+        <Route path="/contact">
+            <Contacts />
+          </Route>
           <Route path="/items">
             <Items />
           </Route>

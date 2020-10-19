@@ -25,3 +25,10 @@ export type ItemType = {
     tips: Array<string>,
     categories: Array<ItemCategoryType>,
 }
+
+export type ContactType = {
+    type: string;
+    text: string;
+    link: string;
+    icon: IconProp;
+}
