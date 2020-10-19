@@ -1,4 +1,4 @@
-import { FontawesomeObject, IconDefinition, IconProp } from "@fortawesome/fontawesome-svg-core"
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
 
 export type GhostType = {
     name: string;
@@ -12,4 +12,15 @@ export type TestType = {
     name: string;
     description: string;
     icon: IconProp;
+}
+
+export type ItemCategoryType = {
+    name: string,
+}
+
+export type ItemType = {
+    name: string,
+    usage: string,
+    tips: Array<string>,
+    categories: Array<ItemCategoryType>,
 }

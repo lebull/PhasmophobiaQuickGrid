@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 
+import { Items } from "./pages/Items";
 import { Ghost } from "./pages/Ghost";
 import { Home } from "./pages/Home";
 
@@ -19,6 +20,9 @@ export const App = () => {
     <div className="App">
       <Layout>
         <Switch>
+          <Route path="/items">
+            <Items />
+          </Route>
           <Route path="/ghost/:name">
             <Ghost />
           </Route>

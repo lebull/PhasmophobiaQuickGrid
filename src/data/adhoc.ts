@@ -1,16 +1,8 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 
 import { faBolt, faBookOpen, faDotCircle, faFingerprint, faTemperatureLow, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
-import {TestType, GhostType} from "./types";
+import {TestType, GhostType, ItemType} from "./types";
 
-
-export interface IItemType {
-    name: string,
-}
-
-export type ItemType = {
-    name: string
-}
 
 export const TestTypes  = {
     EMF: <TestType> {
@@ -45,15 +37,121 @@ export const TestTypes  = {
     }
 };
 
+export const ItemCategories = {
+    Illumination: {
+        name: "Illumintation"
+    },
+    Measurement: {
+        name: "Measurement"
+    },
+    Monitoring: {
+        name: "Monitoring"
+    },
+    Defence: {
+        name: "Defence"
+    },
+    Utility: {
+        name: "Utility"
+    },
+}
+
 export const ItemTypes = {
+    EMFReader: <ItemType> {
+        name : "EMF Reader",
+        usage : "Detect EMF Disturbances",
+        categories: [ItemCategories.Measurement],
+
+    },
+    FlashLight: <ItemType> {
+        name : "Flashlight",
+        usage : "Provide Illumination",
+        categories: [ItemCategories.Illumination],
+    },
+    StrongFlashLight: <ItemType> {
+        name : "Strong Flashlight",
+        usage : "Provide Illumination",
+        categories: [ItemCategories.Illumination],
+    },
+    Candle: <ItemType> {
+        name : "Candle",
+        usage : "Provide Illumination",
+        categories: [ItemCategories.Illumination],
+    },
+    Lighter: <ItemType> {
+        name : "Lighter",
+        usage : "Light Candles and smudgesticks",
+        categories: [ItemCategories.Illumination, ItemCategories.Utility],
+    },
     SmudgeSticks: <ItemType> {
         name : "Smudge Sticks",
+        usage: "Clense an area",
+        categories: [ItemCategories.Measurement],
     },
-    Crusefix: <ItemType> {
-        name : "Crusefix",
+    Crucifix: <ItemType> {
+        name : "Crucifix",
+        usage : "Prevent Haunts",
+        categories: [ItemCategories.Defence],
+    },
+    WritingBook: <ItemType> {
+        name : "Writing Book",
+        usage : "Detect Ghost Writing",
+        categories: [ItemCategories.Measurement],
+    },
+    SpiritBox: <ItemType> {
+        name : "Spirit Box",
+        usage : "Detect Ghost Writing",
+        categories: [ItemCategories.Measurement],
     },
     Salt: <ItemType> {
         name : "Salt",
+        usage : "Detect footsteps from ghosts",
+        categories: [ItemCategories.Defence],
+    },
+    UVLight: <ItemType> {
+        name : "UV Light",
+        usage: "Detect fingerprints and footprints",
+        categories: [ItemCategories.Illumination, ItemCategories.Measurement],
+    },
+    VideoCamera: <ItemType> {
+        name: "Video Camera",
+        usage: "Send Visible or Infradred video to the truck monitor",
+        categories: [ItemCategories.Monitoring],
+    },
+    Tripod: <ItemType> {
+        name: "Tripod",
+        usage: "Provides a platform to mount a video camera.",
+        categories: [ItemCategories.Utility],
+    },
+    PhotoCamera: <ItemType> {
+        name: "Photo Camera",
+        usage: "Taking pictures of evidence will result in monitary reward when the round completes",
+        categories: [ItemCategories.Utility],
+    },
+    MotionSensor: <ItemType> {
+        name: "Motion Sensor",
+        usage: "Illuminates an area when motion is dectected in front of it",
+        categories: [ItemCategories.Monitoring],
+    },
+    IRSensor: <ItemType> {
+        name: "Infrared Sensor",
+        usage: "Reports if a beam in front of it has been broken",
+        categories: [ItemCategories.Monitoring],
+    },
+    SoundSensor: <ItemType> {
+        name: "Sound Sensor",
+        usage: "Detects sound that was created with a bounding area",
+        categories: [ItemCategories.Monitoring],
+    },
+    ParabolicMicrophone: <ItemType> {
+        name: "Parabolic Microphone",
+        usage: "Detects sounds sources that come from a beam in front of the microphone",
+        categories: [ItemCategories.Monitoring],
+
+    },
+    GlowStick: <ItemType> {
+        name: "GlowStick",
+        usage: "Casts a low UV light",
+        categories: [ItemCategories.Illumination, ItemCategories.Measurement],
     },
 }
 
