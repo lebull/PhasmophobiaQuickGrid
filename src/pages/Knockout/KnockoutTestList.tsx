@@ -27,7 +27,7 @@ export const KnockoutTestList = ({activeTests, onSelectTest, className} : IKnock
     }
 
     const TestButton = styled.button`
-        justify-content: flex-start
+        justify-content: flex-start;
     `;
 
     return (
