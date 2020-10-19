@@ -32,7 +32,7 @@ interface IKnockoutGhostProps {
 }
 
 const KnockoutGhost = ({ghostType, activeTests, disabled=false} : IKnockoutGhostProps) => {
-    return <div className={`column is-one-third ${disabled? "is-hidden" : ""}`}>
+    return <div className={`column is-one-third-desktop is-one-half-tablet ${disabled? "is-hidden" : ""}`}>
         <div className="box is-primary is-fullwidth">
             <h4 className="title is-4">{ghostType.name}</h4>
             <p>{ghostType.description}</p>
