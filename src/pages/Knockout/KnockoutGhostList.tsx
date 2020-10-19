@@ -3,6 +3,7 @@ import { GhostType, TestType } from "../../data/types";
 import { GhostTypes } from "../../data/adhoc";
 import { getPossibleGhostTypesFromActiveTests } from "./Helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "styled-components";
 
 export interface IKnockoutGhostListProps {
     activeTests: Array<TestType>;
@@ -32,17 +33,35 @@ interface IKnockoutGhostProps {
 }
 
 const KnockoutGhost = ({ghostType, activeTests, disabled=false} : IKnockoutGhostProps) => {
-    return <div className={`column is-one-third-desktop is-one-half-tablet ${disabled? "is-hidden" : ""}`}>
-        <div className="box is-primary is-fullwidth">
-            <h4 className="title is-4">{ghostType.name}</h4>
-            <p>{ghostType.description}</p>
-            <div className="level is-mobile">
+
+    const GhostTile = styled.div`
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    `;
+
+    const GhostTileInfo = styled.p`
+        flex-grow: 1;
+    `;
+
+    const GhostIconLevel = styled.footer`
+        //border-top: solid 1px rgba(255, 255, 255, 0.1);
+    `;
+
+
+    return <div className={`column is-4-desktop is-6-tablet ${disabled? "is-hidden" : ""}`}>
+        <GhostTile className="card is-primary is-fullwidth">
+            <header className="card-header"> <h2 className="is-2 card-header-title">{ghostType.name}</h2></header>
+            
+            <GhostTileInfo className="card-content">{ghostType.summary}</GhostTileInfo>
+
+            <GhostIconLevel className="level is-mobile card-footer">
                 {ghostType.testTypes.map((testType: TestType, index: number) => 
                     <span key={index} className={`level-item icon is-large ${activeTests.includes(testType) ? "has-text-dark" : "has-text-warning"}`}>
                         <FontAwesomeIcon icon={testType.icon} size="2x" />
                     </span>
                 )}
-            </div>
-        </div>
+            </GhostIconLevel>
+        </GhostTile>
     </div>
 }

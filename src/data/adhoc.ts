@@ -158,6 +158,7 @@ export const ItemTypes = {
 export const GhostTypes = [
     <GhostType> {
         name: "Spirit",
+        summary: "No strong characteristics, weak to smudge.",
         description: `A Spirit is the most common type of ghost in Phasmophobia. This doesn’t mean it isn’t a handful, however. Players should find Spirits at the sites of their unexplained deaths.`,
         testTypes: [TestTypes.SpiritBox, TestTypes.Fingerprints, TestTypes.GhostWriting],
         strengths: [],
@@ -165,6 +166,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Wraith",
+        summary: "Rarely touches the ground, weak to salt.",
         description: `A Wraith can fly, meaning you cannot track them with footsteps. Wraiths can travel through walls, too. Have some Salt on you to help with a Wraith attack; Wraiths don’t love Salt.`,
         testTypes: [TestTypes.Fingerprints, TestTypes.Temperature, TestTypes.SpiritBox],
         strengths: ["Cannot be tracked by footsteps"],
@@ -172,6 +174,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Phantom",
+        summary: "Drains sanity when looked at, briefly disappears with photos.",
         description: `Phantoms can possess the living, commonly summoned by an Ouija Board, instilling fear into anyone nearby. Remember to not look directly at a Phantom and set up your camera to take a photo (this will make it temporarily disappear).`,
         testTypes: [TestTypes.EMF, TestTypes.GhostOrbs, TestTypes.Temperature],
         strengths: ["Simply looking at a Phantom will dramatically lower your sanity"],
@@ -179,6 +182,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Poltergeist",
+        summary: "Throws lots of things.",
         description: `Poltergeists can throw objects and generally cause a ruckus. Get one in an empty room, however, and they are a lot easier to deal with. Spirit Boxes, Fingerprints, and Ghost Orbs are evidence of a Poltergeist.`,
         testTypes: [TestTypes.SpiritBox, TestTypes.Fingerprints, TestTypes.GhostOrbs],
         strengths: ["Can throw many different objects at once"],
@@ -186,6 +190,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Banshee",
+        summary: "Stalks a single individual, crucifix makes it less aggressive.",
         description: `A stalker of its individually chosen prey, a Crucifix nearby a Banshee will make it less aggressive.`,
         testTypes: [TestTypes.EMF, TestTypes.Fingerprints, TestTypes.Temperature],
         strengths: ["Target one player at a time"],
@@ -193,6 +198,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Jinn",
+        summary: "Strong when around electrical power, weak when electrical power is removed.",
         description: `Fast, territorial ghosts.`,
         testTypes: [TestTypes.SpiritBox, TestTypes.GhostOrbs, TestTypes.EMF],
         strengths: ["Jinns are faster when players are far away from them"],
@@ -200,6 +206,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Mare",
+        summary: "Prefers dark.  More aggressive in the dark, less aggressive in the light.",
         description: `Make sure you turn the lights on as this ghost is stronger in the dark.`,
         testTypes: [TestTypes.SpiritBox, TestTypes.GhostOrbs, TestTypes.Temperature],
         strengths: ["Increased chance of attacking in the dark"],
@@ -207,6 +214,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Revenant",
+        summary: "Slow when it can't see its victim, fast when it can.",
         description: `A slow, violent ghost that picks up tremendous speed when hunting its prey. Remember to hide.`,
         testTypes: [TestTypes.EMF, TestTypes.Fingerprints, TestTypes.GhostWriting],
         strengths: ["When hunting a victim, it is quick, faster than anything"],
@@ -214,6 +222,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Shade",
+        summary: "Usually doesn't hunt when around multiple people.",
         description: `A shy ghost, make sure to travel in a group.`,
         testTypes: [TestTypes.EMF, TestTypes.GhostOrbs, TestTypes.GhostWriting],
         strengths: ["Shyness makes it hard to find"],
@@ -221,6 +230,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Demon",
+        summary: "You'll know it",
         description: `Demons are the most aggressive ghost.`,
         testTypes: [TestTypes.SpiritBox, TestTypes.GhostWriting, TestTypes.Temperature],
         strengths: ["Demons attack more than any other ghost type"],
@@ -228,6 +238,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Yurei",
+        summary: "Drains sanity fast, weak to smudge.",
         description: `Yureis have a big effect on your sanity.`,
         testTypes: [TestTypes.GhostOrbs, TestTypes.GhostWriting, TestTypes.Temperature],
         strengths: ["Strong effect on a player’s sanity"],
@@ -235,6 +246,7 @@ export const GhostTypes = [
     },
     <GhostType> {
         name: "Oni",
+        summary: "More active when nearby players",
         description: `Another strong ghost that is more active when more players are around it.`,
         testTypes: [TestTypes.EMF, TestTypes.SpiritBox, TestTypes.GhostWriting],
         strengths: ["More active when players are nearby", "Can move objects at great speed"],
