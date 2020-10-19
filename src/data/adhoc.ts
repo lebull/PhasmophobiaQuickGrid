@@ -42,7 +42,7 @@ export const ItemCategories = {
         name: "Illumintation"
     },
     Measurement: {
-        name: "Illumintation"
+        name: "Measurement"
     },
     Monitoring: {
         name: "Monitoring"
@@ -63,19 +63,24 @@ export const ItemTypes = {
 
     },
     FlashLight: <ItemType> {
-        name : "FlashLight",
+        name : "Flashlight",
         usage : "Provide Illumination",
-        categories: [ItemCategories.Measurement],
+        categories: [ItemCategories.Illumination],
+    },
+    StrongFlashLight: <ItemType> {
+        name : "Strong Flashlight",
+        usage : "Provide Illumination",
+        categories: [ItemCategories.Illumination],
     },
     Candle: <ItemType> {
-        name : "FlashLight",
+        name : "Candle",
         usage : "Provide Illumination",
         categories: [ItemCategories.Illumination],
     },
     Lighter: <ItemType> {
-        name : "FlashLight",
+        name : "Lighter",
         usage : "Light Candles and smudgesticks",
-        categories: [ItemCategories.Utility],
+        categories: [ItemCategories.Illumination, ItemCategories.Utility],
     },
     SmudgeSticks: <ItemType> {
         name : "Smudge Sticks",
@@ -85,7 +90,7 @@ export const ItemTypes = {
     Crucifix: <ItemType> {
         name : "Crucifix",
         usage : "Prevent Haunts",
-        categories: [ItemCategories.Measurement],
+        categories: [ItemCategories.Defence],
     },
     WritingBook: <ItemType> {
         name : "Writing Book",
@@ -93,7 +98,7 @@ export const ItemTypes = {
         categories: [ItemCategories.Measurement],
     },
     SpiritBox: <ItemType> {
-        name : "Writing Book",
+        name : "Spirit Box",
         usage : "Detect Ghost Writing",
         categories: [ItemCategories.Measurement],
     },
@@ -118,7 +123,7 @@ export const ItemTypes = {
         categories: [ItemCategories.Utility],
     },
     PhotoCamera: <ItemType> {
-        name: "PhotoCamera",
+        name: "Photo Camera",
         usage: "Taking pictures of evidence will result in monitary reward when the round completes",
         categories: [ItemCategories.Utility],
     },
@@ -133,8 +138,8 @@ export const ItemTypes = {
         categories: [ItemCategories.Monitoring],
     },
     SoundSensor: <ItemType> {
-        name: "Tripod",
-        usage: "Provides a platform to mount a video camera",
+        name: "Sound Sensor",
+        usage: "Detects sound that was created with a bounding area",
         categories: [ItemCategories.Monitoring],
     },
     ParabolicMicrophone: <ItemType> {

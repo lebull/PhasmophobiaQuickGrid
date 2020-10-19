@@ -26,7 +26,7 @@ export const Item = ({item} : IItemProps) =>
             </ul>
             <h3>Categories</h3>
             <ul>
-                {item.categories?.map(category => <li>{category.name}</li>)}
+                {item.categories.map(category => <li>{category.name}</li>)}
             </ul>
         </div>
     </div>
