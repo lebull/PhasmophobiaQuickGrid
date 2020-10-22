@@ -1,5 +1,5 @@
 import { faGithub, faSteam } from "@fortawesome/free-brands-svg-icons";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faCoffee, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -79,8 +79,12 @@ export const Navbar = () => {
                         <FontAwesomeIcon icon={faGithub} size="lg" />
                         <span className="px-3">Contribute to This Site</span>
                     </a>
-                    {/* <hr className="navbar-divider" />
-                    <a className="navbar-item">
+                    <hr className="navbar-divider" />
+                    <Link to="/contact" className="navbar-item" onClick={toggleMenu}>
+                        <FontAwesomeIcon icon={faEnvelope} size="lg" />
+                        <span className="px-3">Contact</span>
+                    </Link>
+                    {/* <a className="navbar-item">
                         Terms of Service
                     </a>
                     <a className="navbar-item">
