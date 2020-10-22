@@ -1,3 +1,5 @@
+import { faRedo } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { TestType } from "../../data/types";
 import { KnockoutGhostList } from "./KnockoutGhostList";
@@ -28,7 +30,29 @@ export const Knockout = () => {
         }
     }
 
+    const resetTest = () => {
+        setState({
+            ...state,
+            activeTests: Array<TestType>()
+        });
+    }
+
     return <div className="block">
+        <div className="level">
+            <div className="level-left"></div>
+            <div className="level-right">
+                <button className={`button is-warning is-outlined is-large my-1 level-item`}
+                        onClick={resetTest}
+                    >
+                    <span className="icon is-small">
+                        <FontAwesomeIcon icon={faRedo} />
+                    </span>
+                    <span>
+                        Reset
+                    </span>
+                </button>
+            </div>
+        </div>
         <div className="columns">
             <KnockoutTestList className="column is-narrow-tablet" activeTests={state.activeTests} onSelectTest={selectTest} />
             <KnockoutGhostList className="column" activeTests={state.activeTests}/>

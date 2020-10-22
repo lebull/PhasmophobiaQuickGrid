@@ -3,7 +3,6 @@ import { TestType } from "../../data/types";
 import { TestTypes } from "../../data/adhoc";
 import { getPossibleTestsFromActiveTests } from "./Helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import styled from "styled-components";
 
 interface IKnockoutTestListProps {
