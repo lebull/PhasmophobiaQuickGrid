@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 import { faBolt, faBookOpen, faDotCircle, faEnvelope, faFingerprint, faTemperatureLow, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
-import {TestType, GhostType, ItemType, ContactType} from "./types";
+import {TestType, GhostType, ItemType, ContactType, ChallengeType, ChallengeDifficulty} from "./types";
 
 
 export const TestTypes  = {
@@ -126,6 +126,11 @@ export const ItemTypes = {
         usage: "Taking pictures of evidence will result in monitary reward when the round completes",
         categories: [ItemCategories.Utility],
     },
+    Thermometer: <ItemType> {
+        name: "Thermometer",
+        usage: "Detects low temperatures",
+        categories: [ItemCategories.Measurement],
+    },
     MotionSensor: <ItemType> {
         name: "Motion Sensor",
         usage: "Illuminates an area when motion is dectected in front of it",
@@ -153,6 +158,8 @@ export const ItemTypes = {
         categories: [ItemCategories.Illumination, ItemCategories.Measurement],
     },
 }
+
+export const getItemTypes = () => Object.entries(ItemTypes).map(([key, itemType]) => itemType);
 
 export const GhostTypes = [
     <GhostType> {
@@ -261,3 +268,32 @@ export const ContactLinks: Array<ContactType> = [
         icon: faEnvelope,
     },
 ];
+
+export const Challenges = {
+    NoClosedDoors: <ChallengeType> {
+        title: "No Closed Doors",
+        description: "During a hunt, open doors may not be closed",
+        difficulty: ChallengeDifficulty.Medium,
+    },
+    NoFlashlight: <ChallengeType> {
+        title: "No Flashlights",
+        description: "Flashlights and uv lights may not be used",
+        difficulty: ChallengeDifficulty.Hard,
+        forbiddenItems: [ItemTypes.FlashLight, ItemTypes.UVLight, ItemTypes.StrongFlashLight],
+           
+    },
+    NoThermometer: <ChallengeType> {
+        title: "No Thermometer",
+        description: "Thermometers may not be used",
+        difficulty: ChallengeDifficulty.Hard,
+        forbiddenItems: [ItemTypes.Thermometer],
+    },
+    // NoCommunication: <ChallengeType> {
+    //     title: "No Communication",
+    //     description: "Cannot communicate with teammates",
+    //     difficulty: ChallengeDifficulty.Hard,
+    // }
+}
+
+
+export const getChallenges = () => Object.entries(Challenges).map(([key, challenge]) => challenge);

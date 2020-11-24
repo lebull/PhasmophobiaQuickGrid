@@ -51,6 +51,13 @@ export const Navbar = () => {
             </Link>
 
             <div className="navbar-item has-dropdown is-hoverable">
+                <Link to={`/challenges`} className="navbar-item" onClick={toggleMenu}>
+                    Challenges
+                </Link>
+            </div>
+
+
+            <div className="navbar-item has-dropdown is-hoverable">
                 <Link to={`/ghosts`} className="navbar-item" onClick={toggleMenu}>
                     Ghosts
                 </Link>
