@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 import { faBolt, faBookOpen, faDotCircle, faEnvelope, faFingerprint, faTemperatureLow, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
-import {TestType, GhostType, ItemType, ContactType} from "./types";
+import {TestType, GhostType, ItemType, ContactType, ChallengeType, ChallengeDifficulty} from "./types";
 
 
 export const TestTypes  = {
@@ -126,6 +126,11 @@ export const ItemTypes = {
         usage: "Taking pictures of evidence will result in monitary reward when the round completes",
         categories: [ItemCategories.Utility],
     },
+    Thermometer: <ItemType> {
+        name: "Thermometer",
+        usage: "Detects low temperatures",
+        categories: [ItemCategories.Measurement],
+    },
     MotionSensor: <ItemType> {
         name: "Motion Sensor",
         usage: "Illuminates an area when motion is dectected in front of it",
@@ -153,6 +158,8 @@ export const ItemTypes = {
         categories: [ItemCategories.Illumination, ItemCategories.Measurement],
     },
 }
+
+export const getItemTypes = () => Object.entries(ItemTypes).map(([key, itemType]) => itemType);
 
 export const GhostTypes = [
     <GhostType> {
@@ -261,3 +268,52 @@ export const ContactLinks: Array<ContactType> = [
         icon: faEnvelope,
     },
 ];
+
+export const Challenges = {
+    NoClosedDoors: <ChallengeType> {
+        title: "No Closed Doors",
+        description: "During a hunt, open doors may not be closed",
+        difficulty: ChallengeDifficulty.Medium,
+    },
+    NoFlashlight: <ChallengeType> {
+        title: "No Flashlights",
+        description: "Flashlights and uv lights may not be used",
+        difficulty: ChallengeDifficulty.Medium,
+        forbiddenItems: [ItemTypes.FlashLight, ItemTypes.UVLight, ItemTypes.StrongFlashLight],   
+    },
+    NoThermometer: <ChallengeType> {
+        title: "No Thermometer",
+        description: "Thermometers may not be used",
+        difficulty: ChallengeDifficulty.Easy,
+        forbiddenItems: [ItemTypes.Thermometer],
+    },
+    BoyScoutRule: <ChallengeType> {
+        title: "Boyscout Rule",
+        description: "The building must be left in the same state (or better) as when you arrived.  No left items, thrown objects must be replaced if possible.",
+        difficulty: ChallengeDifficulty.Hard,
+    },
+    // https://www.reddit.com/r/PhasmophobiaGame/comments/jlptol/phasmophobia_challenges_list/
+    BigBrother: <ChallengeType> {
+        title: "Big Brother",
+        description: "Only one player is allowed in the house at a time",
+        difficulty: ChallengeDifficulty.Easy,
+    },
+    IsDexterIll: <ChallengeType> {
+        title: "Is Dexter Ill?",
+        description: "No items allowed until you reach zero sanity",
+        difficulty: ChallengeDifficulty.Hard,
+    },
+    RadioSilence: <ChallengeType> {
+        title: "Radio Silence",
+        description: "Players may not use walkie-talkies",
+        difficulty: ChallengeDifficulty.Medium,
+    }
+    // NoCommunication: <ChallengeType> {
+    //     title: "No Communication",
+    //     description: "Cannot communicate with teammates",
+    //     difficulty: ChallengeDifficulty.Hard,
+    // }
+}
+
+
+export const getChallenges = () => Object.entries(Challenges).map(([key, challenge]) => challenge);

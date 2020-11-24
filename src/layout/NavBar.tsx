@@ -3,8 +3,6 @@ import { faCoffee, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { GhostTypes } from "../data/adhoc";
-import { GhostType } from "../data/types";
 
 interface INavbarSectionProps {
     title: string,
@@ -52,19 +50,25 @@ export const Navbar = () => {
                 Home
             </Link>
 
-            <NavbarSection title="Ghosts">
-                {GhostTypes.map((ghostType: GhostType, index: number) => 
-                    <Link key={index} to={`/ghost/${ghostType.name}`} className="navbar-item" onClick={toggleMenu}>
-                        {ghostType.name}
-                    </Link>
-                )}
-            </NavbarSection>
+
+            <div className="navbar-item has-dropdown is-hoverable">
+                <Link to={`/ghosts`} className="navbar-item" onClick={toggleMenu}>
+                    Ghosts
+                </Link>
+            </div>
+
 
             <div className="navbar-item has-dropdown is-hoverable">
                 <Link to={`/items`} className="navbar-item" onClick={toggleMenu}>
                     Items
                 </Link>
             </div>
+
+            {/* <div className="navbar-item has-dropdown is-hoverable">
+                <Link to={`/challenges`} className="navbar-item" onClick={toggleMenu}>
+                    Challenges
+                </Link>
+            </div> */}
 
             <div className="navbar-item has-dropdown is-hoverable">
                 <div className="navbar-link">

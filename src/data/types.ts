@@ -32,3 +32,16 @@ export type ContactType = {
     link: string;
     icon: IconProp;
 }
+
+export enum ChallengeDifficulty {
+    Easy = "Easy",
+    Medium = "Medium",
+    Hard = "Hard",
+}
+
+export type ChallengeType = {
+    title: string;
+    description: string;
+    difficulty: ChallengeDifficulty,
+    forbiddenItems: ItemType[]
+}

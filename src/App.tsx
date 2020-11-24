@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 
 import { Items } from "./pages/Items";
-import { Ghost } from "./pages/Ghost";
+import { Ghosts } from "./pages/Ghost";
 import { Home } from "./pages/Home";
 import { Contacts } from "./pages/Contact";
 
@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import { Layout } from './layout/Layout';
 import { useTracking } from './hooks/useTracking';
+import { Challenges } from './pages/Challenge/Challenges';
 
 
 export const App = () => {
@@ -24,12 +25,16 @@ export const App = () => {
         <Route path="/contact">
             <Contacts />
           </Route>
+          <Route path="/challenges">
+            <Challenges />
+          </Route>
           <Route path="/items">
             <Items />
           </Route>
-          <Route path="/ghost/:name">
-            <Ghost />
+          <Route path="/ghosts">
+            <Ghosts />
           </Route>
+          
           <Route path="/">
             <Home />
           </Route>
