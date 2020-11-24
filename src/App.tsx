@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 
 import { Items } from "./pages/Items";
-import { Ghost } from "./pages/Ghost";
+import { Ghosts } from "./pages/Ghost";
 import { Home } from "./pages/Home";
 import { Contacts } from "./pages/Contact";
 
@@ -27,8 +27,8 @@ export const App = () => {
           <Route path="/items">
             <Items />
           </Route>
-          <Route path="/ghost/:name">
-            <Ghost />
+          <Route path="/ghosts">
+            <Ghosts />
           </Route>
           <Route path="/">
             <Home />
