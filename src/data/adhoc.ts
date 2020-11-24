@@ -278,16 +278,37 @@ export const Challenges = {
     NoFlashlight: <ChallengeType> {
         title: "No Flashlights",
         description: "Flashlights and uv lights may not be used",
-        difficulty: ChallengeDifficulty.Hard,
-        forbiddenItems: [ItemTypes.FlashLight, ItemTypes.UVLight, ItemTypes.StrongFlashLight],
-           
+        difficulty: ChallengeDifficulty.Medium,
+        forbiddenItems: [ItemTypes.FlashLight, ItemTypes.UVLight, ItemTypes.StrongFlashLight],   
     },
     NoThermometer: <ChallengeType> {
         title: "No Thermometer",
         description: "Thermometers may not be used",
+        difficulty: ChallengeDifficulty.Easy,
+        forbiddenItems: [ItemTypes.Thermometer],
+    },
+    BoyScoutRule: <ChallengeType> {
+        title: "Boyscout Rule",
+        description: "The building must be left in the same state (or better) as when you arrived.  No left items, thrown objects must be replaced if possible.",
         difficulty: ChallengeDifficulty.Hard,
         forbiddenItems: [ItemTypes.Thermometer],
     },
+    // https://www.reddit.com/r/PhasmophobiaGame/comments/jlptol/phasmophobia_challenges_list/
+    BigBrother: <ChallengeType> {
+        title: "Big Brother",
+        description: "Only one player is allowed in the house at a time",
+        difficulty: ChallengeDifficulty.Easy,
+    },
+    IsDexterIll: <ChallengeType> {
+        title: "Is Dexter Ill?",
+        description: "No items allowed until you reach zero sanity",
+        difficulty: ChallengeDifficulty.Hard,
+    },
+    RadioSilence: <ChallengeType> {
+        title: "Radio Silence",
+        description: "Players may not use walkie-talkies",
+        difficulty: ChallengeDifficulty.Medium,
+    }
     // NoCommunication: <ChallengeType> {
     //     title: "No Communication",
     //     description: "Cannot communicate with teammates",

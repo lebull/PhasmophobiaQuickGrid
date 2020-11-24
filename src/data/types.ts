@@ -34,9 +34,9 @@ export type ContactType = {
 }
 
 export enum ChallengeDifficulty {
-    Easy,
-    Medium,
-    Hard,
+    Easy = "Easy",
+    Medium = "Medium",
+    Hard = "Hard",
 }
 
 export type ChallengeType = {

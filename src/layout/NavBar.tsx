@@ -50,12 +50,6 @@ export const Navbar = () => {
                 Home
             </Link>
 
-            <div className="navbar-item has-dropdown is-hoverable">
-                <Link to={`/challenges`} className="navbar-item" onClick={toggleMenu}>
-                    Challenges
-                </Link>
-            </div>
-
 
             <div className="navbar-item has-dropdown is-hoverable">
                 <Link to={`/ghosts`} className="navbar-item" onClick={toggleMenu}>
@@ -69,6 +63,12 @@ export const Navbar = () => {
                     Items
                 </Link>
             </div>
+
+            {/* <div className="navbar-item has-dropdown is-hoverable">
+                <Link to={`/challenges`} className="navbar-item" onClick={toggleMenu}>
+                    Challenges
+                </Link>
+            </div> */}
 
             <div className="navbar-item has-dropdown is-hoverable">
                 <div className="navbar-link">
