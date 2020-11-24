@@ -291,7 +291,6 @@ export const Challenges = {
         title: "Boyscout Rule",
         description: "The building must be left in the same state (or better) as when you arrived.  No left items, thrown objects must be replaced if possible.",
         difficulty: ChallengeDifficulty.Hard,
-        forbiddenItems: [ItemTypes.Thermometer],
     },
     // https://www.reddit.com/r/PhasmophobiaGame/comments/jlptol/phasmophobia_challenges_list/
     BigBrother: <ChallengeType> {
