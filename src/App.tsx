@@ -34,7 +34,6 @@ export const App = () => {
           <Route path="/ghosts">
             <Ghosts />
           </Route>
-          
           <Route path="/">
             <Home />
           </Route>

@@ -14,3 +14,7 @@ $navbar-background-color: $grey-dark;
 $navbar-dropdown-background-color: $grey-dark;
 
 @import '../node_modules/bulma/bulma';
+
+.App {
+    min-height: 100vh;
+}
