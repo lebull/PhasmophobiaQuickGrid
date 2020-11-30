@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Navbar } from "./NavBar";
+import { Footer } from "./Footer";
 
 const Header = () => {
-
     return <Navbar />
 }
 
@@ -24,7 +24,7 @@ export const Layout = ({ children }: ILayoutProps) => {
                 {children}
             </div>
         </Content>
-        {/* <div>Footer</div> */}
+        <Footer />
     </div>);
 
 }
