@@ -16,8 +16,15 @@ export const Layout = ({ children }: ILayoutProps) => {
     const Content = styled.div`
         display: flex;
         justify-content: center;
+        flex-grow: 1;
     `;
-    return (<div>
+
+    const ContentWrapper = styled.div`
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    `;
+    return (<ContentWrapper>
         <Header />
         <Content className="content">
             <div className="container m-5">
@@ -25,7 +32,7 @@ export const Layout = ({ children }: ILayoutProps) => {
             </div>
         </Content>
         <Footer />
-    </div>);
+    </ContentWrapper>);
 
 }
 
