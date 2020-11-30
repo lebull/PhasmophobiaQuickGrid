@@ -64,11 +64,11 @@ export const Navbar = () => {
                 </Link>
             </div>
 
-            {/* <div className="navbar-item has-dropdown is-hoverable">
+            <div className="navbar-item has-dropdown is-hoverable">
                 <Link to={`/challenges`} className="navbar-item" onClick={toggleMenu}>
                     Challenges
                 </Link>
-            </div> */}
+            </div>
 
             <div className="navbar-item has-dropdown is-hoverable">
                 <div className="navbar-link">

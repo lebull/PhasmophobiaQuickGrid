@@ -3,9 +3,9 @@ import { getChallenges } from "../../data/adhoc";
 import { ChallengeDifficulty, ChallengeType, ItemType } from "../../data/types";
 
 export const Challenges = () => {
-    return <div>
+    return <div className="columns is-multiline">
         {getChallenges().map((challenge) =>
-            <Challenge key={challenge.title} challenge={challenge} />
+            <div key={challenge.title} className="column is-4-desktop is-6-tablet"><Challenge challenge={challenge} /></div>
         )}
     </div>
 }
