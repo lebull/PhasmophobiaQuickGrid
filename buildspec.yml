@@ -21,8 +21,10 @@ phases:
     commands:
       - cd emffivebackend
       # Use AWS SAM to package the application by using AWS CloudFormation
-      - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml && cd -
+      - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml
+      - mv template-export.yml ../template-export.yml
+      - cd -
 artifacts:
   type: zip
   files:
-    - emffivebackend/template-export.yml
+    - template-export.yml
