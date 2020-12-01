@@ -4,19 +4,24 @@ phases:
     commands:
       # Install all dependencies (including dependencies for running tests)
       # - npm install
-      - cd emffivebackend && npm install && cd -
+      - cd emffivebackend
+      - npm install
+      - cd -
   pre_build:
     commands:
+      - cd emffivebackend
       # Discover and run unit tests in the '__tests__' directory
       - npm run test
       # Remove all unit tests to reduce the size of the package that will be ultimately uploaded to Lambda
       - rm -rf ./__tests__
       # Remove all dependencies not needed for the Lambda deployment package (the packages from devDependencies in package.json)
       - npm prune --production
+      - cd -
   build:
     commands:
+      - cd emffivebackend
       # Use AWS SAM to package the application by using AWS CloudFormation
-      - cd emffivebackend && aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml && cd -
+      - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml && cd -
 artifacts:
   type: zip
   files:
