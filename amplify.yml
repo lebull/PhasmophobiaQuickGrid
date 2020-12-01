@@ -1,6 +1,6 @@
 version: 1
 applications:
-  - appRoot: /emffive
+  - appRoot: emffive
     frontend:
       phases:
         preBuild:
