@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-phasmophobiaquickgri-dev-145429-authRole",
+      "UnauthRoleArn": "arn:aws:iam::917558688231:role/amplify-phasmophobiaquickgri-dev-145429-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::917558688231:role/amplify-phasmophobiaquickgri-dev-145429-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-phasmophobiaquickgri-dev-145429-deployment",
+      "UnauthRoleName": "amplify-phasmophobiaquickgri-dev-145429-unauthRole",
+      "StackName": "amplify-phasmophobiaquickgri-dev-145429",
+      "StackId": "arn:aws:cloudformation:us-east-1:917558688231:stack/amplify-phasmophobiaquickgri-dev-145429/921a63a0-3997-11eb-b07c-12ff7c2f10c5",
+      "AmplifyAppId": "d9bz1dbeebdas"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d9bz1dbeebdas",
+          "type": "cicd"
+        }
+      },
+      "auth": {
+        "phasmophobiaquickgri900ed04c": {}
+      }
+    }
+  }
+}
