@@ -1,11 +1,5 @@
 {
     "AppSyncApiName": "phasmophobiaquickgri",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": false,
-    "AuthCognitoUserPoolId": {
-        "Fn::GetAtt": [
-            "authphasmophobiaquickgri900ed04c",
-            "Outputs.UserPoolId"
-        ]
-    }
+    "DynamoDBEnableServerSideEncryption": false
 }
