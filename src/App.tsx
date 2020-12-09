@@ -5,6 +5,7 @@ import { Items } from "./pages/Items";
 import { Ghosts } from "./pages/Ghost";
 import { Home } from "./pages/Home";
 import { Contacts } from "./pages/Contact";
+import { Posts } from "./pages/Posts";
 
 import {
   Switch,
@@ -14,7 +15,6 @@ import {
 import { Layout } from './layout/Layout';
 import { useTracking } from './hooks/useTracking';
 import { Challenges } from './pages/Challenge/Challenges';
-
 
 export const App = () => {
   useTracking();
@@ -33,6 +33,9 @@ export const App = () => {
           </Route>
           <Route path="/ghosts">
             <Ghosts />
+          </Route>
+          <Route path="/posts">
+            <Posts />
           </Route>
           <Route path="/">
             <Home />
