@@ -7,6 +7,7 @@ export type GhostType = {
     testTypes: Array<TestType>;
     strengths: Array<string>;
     weaknesses: Array<string>;
+    notes?: Array<string>;
 }
 
 export type TestType = {
