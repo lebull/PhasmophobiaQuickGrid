@@ -5,7 +5,6 @@ import { Items } from "./pages/Items";
 import { Ghosts } from "./pages/Ghost";
 import { Home } from "./pages/Home";
 import { Contacts } from "./pages/Contact";
-import { Posts, PostDetail } from "./pages/Posts";
 
 import {
   Switch,
@@ -38,12 +37,6 @@ export const App = () => {
           </Route>
           <Route path="/ghosts">
             <Ghosts />
-          </Route>
-          <Route path="/posts/:postId">
-            <PostDetail />
-          </Route>
-          <Route path="/posts">
-            <Posts />
           </Route>
           <Route path="/">
             <Home />
