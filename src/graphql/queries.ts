@@ -9,10 +9,6 @@ export const getPost = /* GraphQL */ `
       title
       content
       visible
-      published
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -30,45 +26,10 @@ export const listPosts = /* GraphQL */ `
         title
         content
         visible
-        published
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncPosts = /* GraphQL */ `
-  query SyncPosts(
-    $filter: ModelPostFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncPosts(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        title
-        content
-        visible
-        published
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;

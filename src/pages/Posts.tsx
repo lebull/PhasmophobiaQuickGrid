@@ -10,6 +10,8 @@ export const Posts = () => {
 
     const [posts, setPosts] = useState<Post[]>([]);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
         const setPostsAsync = async () => {
@@ -17,9 +19,11 @@ export const Posts = () => {
             try {
                 const postsResponse = await API.graphql(graphqlOperation(listPosts)) as any;
                 setPosts(postsResponse.data.listPosts.items);
+                setLoading(false);
             } catch (error) {
                 console.error(error);
                 setError(error);
+                setLoading(false);
             }
 
         }
@@ -33,8 +37,12 @@ export const Posts = () => {
         return <p>Error</p>
     }
 
-    if(posts.length === undefined || posts.length <= 0){
+    if(loading){
         return <p>Loading...</p>
+    }
+
+    if(posts.length === 0) {
+        return <p>No posts</p>
     }
 
     return <ul>{posts.map((post) => <li><PostListItem post={post} /></li>)}</ul>

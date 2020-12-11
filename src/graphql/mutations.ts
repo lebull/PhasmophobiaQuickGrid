@@ -12,10 +12,6 @@ export const createPost = /* GraphQL */ `
       title
       content
       visible
-      published
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -31,10 +27,6 @@ export const updatePost = /* GraphQL */ `
       title
       content
       visible
-      published
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -50,10 +42,6 @@ export const deletePost = /* GraphQL */ `
       title
       content
       visible
-      published
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
