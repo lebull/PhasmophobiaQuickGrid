@@ -4,3 +4,4 @@ type Post @model @auth(rules: [{allow: public}]) {
   content: String
   visible: Boolean
 }
+ 
