@@ -18,7 +18,6 @@ export const Posts = () => {
                 const postsResponse = await API.graphql(graphqlOperation(listPosts)) as any;
                 setPosts(postsResponse.data.listPosts.items);
             } catch (error) {
-                debugger;
                 console.error(error);
                 setError(error);
             }
