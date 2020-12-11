@@ -35,7 +35,13 @@ const Ghost = ({ ghostName }: GhostParams) => {
                         <p className="content">
                             {ghost.description}
                         </p>
-                        
+                        <h2>Notes</h2>
+                        <ul>
+                            {ghost.notes.map((note, index) => <li key={index}>
+                                <li><p>{note}</p></li>
+                            </li>
+                            )}
+                        </ul>
                     </div>
                     <div className="column is-one-third">
                         <div className="">

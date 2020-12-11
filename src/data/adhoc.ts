@@ -169,6 +169,10 @@ export const GhostTypes = [
         testTypes: [TestTypes.SpiritBox, TestTypes.Fingerprints, TestTypes.GhostWriting],
         strengths: [],
         weaknesses: ["Smudge Sticks"],
+        notes: [
+            "Smudge will increase the time between hunts",
+            "Normally, when you use smudge within 6 meters of a ghost, it will not hunt for 90 seconds.  This is increased to 180 seconds for the spirit."
+        ],
     },
     <GhostType> {
         name: "Wraith",
@@ -177,6 +181,12 @@ export const GhostTypes = [
         testTypes: [TestTypes.Fingerprints, TestTypes.Temperature, TestTypes.SpiritBox],
         strengths: ["Cannot be tracked by footsteps"],
         weaknesses: ["Salt"],
+        notes: [
+            "Wraiths are the only ghost that do not leave footprints after stepping in salt",
+            "A wraith stepping in salt will prematurely end the hunt",
+            "A wraith stepping in salt will generally increase activity.",
+            "Wraiths can see through doors and lockers (as well as travel through them).  Walls still break line of site."
+        ],
     },
     <GhostType> {
         name: "Phantom",
@@ -185,6 +195,11 @@ export const GhostTypes = [
         testTypes: [TestTypes.EMF, TestTypes.GhostOrbs, TestTypes.Temperature],
         strengths: ["Simply looking at a Phantom will dramatically lower your sanity"],
         weaknesses: ["Photographing a Phantom"],
+        notes: [
+            "Sanity will drop when looking at it either during a manifestation or a hunt",
+            "If a hunt is in progress, taking a photo will not end the hunt.",
+            "Phantoms are less visible during a hunt, being visible every 1 to 2 seconds (normaly every 0 to 1.3 seconds)."
+        ],
     },
     <GhostType> {
         name: "Poltergeist",
@@ -193,6 +208,12 @@ export const GhostTypes = [
         testTypes: [TestTypes.SpiritBox, TestTypes.Fingerprints, TestTypes.GhostOrbs],
         strengths: ["Can throw many different objects at once"],
         weaknesses: ["Empty rooms"],
+        notes: [
+            "This is the only ghost that can be identified with only 2 pieces of evidence (Ghost orbs and fingerprints)",
+            "Poltergeist can throw many items at once (EMF 3).",
+            "Sanity will drain for 2 times the number of items thrown, regardless if you are looking at it.",
+            "Poltergeists can throw an item for twice the horizontal velocity than a normal ghost",
+        ],
     },
     <GhostType> {
         name: "Banshee",
@@ -201,6 +222,12 @@ export const GhostTypes = [
         testTypes: [TestTypes.EMF, TestTypes.Fingerprints, TestTypes.Temperature],
         strengths: ["Target one player at a time"],
         weaknesses: ["Fear of the Crucifix"],
+        notes: [
+            "Crucifix radius is 5 meters instead of 3 meters.",
+            "Banshees only choose one target at a time.",
+            "If the target leaves the building or is killed, the banshee will pick a new target",
+            "A banshee can hunt/attack even when sanity is high.",
+        ],
     },
     <GhostType> {
         name: "Jinn",
@@ -209,6 +236,10 @@ export const GhostTypes = [
         testTypes: [TestTypes.SpiritBox, TestTypes.GhostOrbs, TestTypes.EMF],
         strengths: ["Jinns are faster when players are far away from them"],
         weaknesses: ["Turn off the location’s power source to stop a Jinn from using its ability"],
+        notes: [
+            "Turning off the powersource (breaker) will reduce it's speed when far away",
+            "Jinn's tend to be very territorial",
+        ],
     },
     <GhostType> {
         name: "Mare",
@@ -217,6 +248,11 @@ export const GhostTypes = [
         testTypes: [TestTypes.SpiritBox, TestTypes.GhostOrbs, TestTypes.Temperature],
         strengths: ["Increased chance of attacking in the dark"],
         weaknesses: ["Light sources (turn the lights on, use torches, etc…)"],
+        notes: [
+            "When the mare is in the dark, it has twice the chance to hunt (almost as agressive as a demon)",
+            "Lights on will reduce the chance of a hunt",
+            "Mares tend to try to turn the lights off but rarely turn them on",
+        ],
     },
     <GhostType> {
         name: "Revenant",
@@ -225,6 +261,9 @@ export const GhostTypes = [
         testTypes: [TestTypes.EMF, TestTypes.Fingerprints, TestTypes.GhostWriting],
         strengths: ["When hunting a victim, it is quick, faster than anything"],
         weaknesses: ["Hiding from a Revenant makes it move very slowly"],
+        notes: [
+            "This is the only ghost that too fast to run away from during a hunt.  Players must hide."
+        ]
     },
     <GhostType> {
         name: "Shade",
@@ -233,6 +272,7 @@ export const GhostTypes = [
         testTypes: [TestTypes.EMF, TestTypes.GhostOrbs, TestTypes.GhostWriting],
         strengths: ["Shyness makes it hard to find"],
         weaknesses: ["If there are multiple players nearby, a Shade will not enter into hunting mode"],
+        notes: [],
     },
     <GhostType> {
         name: "Demon",
@@ -241,6 +281,9 @@ export const GhostTypes = [
         testTypes: [TestTypes.SpiritBox, TestTypes.GhostWriting, TestTypes.Temperature],
         strengths: ["Demons attack more than any other ghost type"],
         weaknesses: ["Ask Demons successful questions on the Ouija Board. This won’t lower a player’s sanity"],
+        notes: [
+            
+        ],
     },
     <GhostType> {
         name: "Yurei",
@@ -249,6 +292,9 @@ export const GhostTypes = [
         testTypes: [TestTypes.GhostOrbs, TestTypes.GhostWriting, TestTypes.Temperature],
         strengths: ["Strong effect on a player’s sanity"],
         weaknesses: ["Smudge the room of a Yurei to stop it wandering around the location for a long time"],
+        notes: [
+            
+        ],
     },
     <GhostType> {
         name: "Oni",
@@ -257,6 +303,9 @@ export const GhostTypes = [
         testTypes: [TestTypes.EMF, TestTypes.SpiritBox, TestTypes.GhostWriting],
         strengths: ["More active when players are nearby", "Can move objects at great speed"],
         weaknesses: ["More active players will make an Oni easier to find and identify"],
+        notes: [
+            ""
+        ],
     },
 ];
 
