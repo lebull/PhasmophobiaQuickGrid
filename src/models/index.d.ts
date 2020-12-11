@@ -6,10 +6,9 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 export declare class Post {
   readonly id: string;
-  readonly title: string;
+  readonly title?: string;
   readonly content?: string;
   readonly visible?: boolean;
-  readonly published?: string;
   constructor(init: ModelInit<Post>);
   static copyOf(source: Post, mutator: (draft: MutableModel<Post>) => MutableModel<Post> | void): Post;
 }

@@ -14,7 +14,7 @@ export const schema = {
                     "name": "title",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "content": {
@@ -28,13 +28,6 @@ export const schema = {
                     "name": "visible",
                     "isArray": false,
                     "type": "Boolean",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "published": {
-                    "name": "published",
-                    "isArray": false,
-                    "type": "AWSDate",
                     "isRequired": false,
                     "attributes": []
                 }
@@ -67,5 +60,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "553ec2269f2a07c1324037766a685bf3"
+    "version": "61c5b15b3603957a8da7bdfd860a6683"
 };
