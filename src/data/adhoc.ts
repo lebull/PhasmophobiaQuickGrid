@@ -307,6 +307,28 @@ export const GhostTypes = [
             ""
         ],
     },
+    <GhostType> {
+        name: "Yokai",
+        summary: "A common type of ghost that is attracted to human voices. They can usually be found haunting family homes.",
+        description: ` It has been known to become aggressive towards the players, that being too loud near the ghost. These noises make it very active and could become a reason of the starting Hunt.`,
+        testTypes: [TestTypes.SpiritBox, TestTypes.GhostWriting, TestTypes.GhostOrbs],
+        strengths: ["Talking near a Yokai will anger it and cause it to attack more often."],
+        weaknesses: ["While hunting, it can only hear voices close to it."],
+        notes: [
+            ""
+        ],
+    },
+    <GhostType> {
+        name: "Hantu",
+        summary: "A rare ghost that can be found in hot climates. They are known to attack more often in cold weather",
+        description: ` its Hunt behaviour dependence on the temperature. Their speed is fully based on the temperature of the rooms it goes through, so the speed change can be observed in the real time.`,
+        testTypes: [TestTypes.Fingerprints, TestTypes.GhostOrbs, TestTypes.SpiritBox],
+        strengths: ["Hantu moves faster in colder areas."],
+        weaknesses: ["Hantu moves slower in warmer areas"],
+        notes: [
+            ""
+        ],
+    },
 ];
 
 export const ContactLinks: Array<ContactType> = [
