@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
-import { faBolt, faBookOpen, faDotCircle, faEnvelope, faFingerprint, faTemperatureLow, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import { faBolt, faBookOpen, faDotCircle, faEnvelope, faFingerprint, faTemperatureLow, faVolumeUp, faBraille } from "@fortawesome/free-solid-svg-icons";
 import {TestType, GhostType, ItemType, ContactType, ChallengeType, ChallengeDifficulty} from "./types";
 
 
@@ -33,12 +33,17 @@ export const TestTypes  = {
         name: "Ghost Writing",
         description: "Writing has been observed in a ghost writing book",
         icon: faBookOpen,
+    },
+    Dots: <TestType> {
+        name: "DOTS",
+        description: "Ghost silhouttes can be seen in this grid of lights",
+        icon: faBraille,
     }
 };
 
 export const ItemCategories = {
     Illumination: {
-        name: "Illumintation"
+        name: "Illumination"
     },
     Measurement: {
         name: "Measurement"
@@ -150,11 +155,15 @@ export const ItemTypes = {
         name: "Parabolic Microphone",
         usage: "Detects sounds sources that come from a beam in front of the microphone",
         categories: [ItemCategories.Monitoring],
-
     },
     GlowStick: <ItemType> {
         name: "GlowStick",
         usage: "Casts a low UV light",
+        categories: [ItemCategories.Illumination, ItemCategories.Measurement],
+    },
+    DotsProjector: <ItemType> {
+        name: "D.O.T.S. Projector",
+        usage: "A laser grid of light that can reveal the silhoutte of a ghost",
         categories: [ItemCategories.Illumination, ItemCategories.Measurement],
     },
 }
@@ -166,7 +175,7 @@ export const GhostTypes = [
         name: "Spirit",
         summary: "No strong characteristics, weak to smudge.",
         description: `A Spirit is the most common type of ghost in Phasmophobia. This doesn’t mean it isn’t a handful, however. Players should find Spirits at the sites of their unexplained deaths.`,
-        testTypes: [TestTypes.SpiritBox, TestTypes.Fingerprints, TestTypes.GhostWriting],
+        testTypes: [TestTypes.EMF, TestTypes.SpiritBox, TestTypes.GhostWriting],
         strengths: [],
         weaknesses: ["Smudge Sticks"],
         notes: [
@@ -178,7 +187,7 @@ export const GhostTypes = [
         name: "Wraith",
         summary: "Rarely touches the ground, weak to salt.",
         description: `A Wraith can fly, meaning you cannot track them with footsteps. Wraiths can travel through walls, too. Have some Salt on you to help with a Wraith attack; Wraiths don’t love Salt.`,
-        testTypes: [TestTypes.Fingerprints, TestTypes.Temperature, TestTypes.SpiritBox],
+        testTypes: [TestTypes.EMF, TestTypes.SpiritBox, TestTypes.Dots],
         strengths: ["Cannot be tracked by footsteps"],
         weaknesses: ["Salt"],
         notes: [
@@ -192,7 +201,7 @@ export const GhostTypes = [
         name: "Phantom",
         summary: "Drains sanity when looked at, briefly disappears with photos.",
         description: `Phantoms can possess the living, commonly summoned by an Ouija Board, instilling fear into anyone nearby. Remember to not look directly at a Phantom and set up your camera to take a photo (this will make it temporarily disappear).`,
-        testTypes: [TestTypes.EMF, TestTypes.GhostOrbs, TestTypes.Temperature],
+        testTypes: [TestTypes.SpiritBox, TestTypes.Fingerprints, TestTypes.Dots],
         strengths: ["Simply looking at a Phantom will dramatically lower your sanity"],
         weaknesses: ["Photographing a Phantom"],
         notes: [
@@ -205,7 +214,7 @@ export const GhostTypes = [
         name: "Poltergeist",
         summary: "Throws lots of things.",
         description: `Poltergeists can throw objects and generally cause a ruckus. Get one in an empty room, however, and they are a lot easier to deal with. Spirit Boxes, Fingerprints, and Ghost Orbs are evidence of a Poltergeist.`,
-        testTypes: [TestTypes.SpiritBox, TestTypes.Fingerprints, TestTypes.GhostOrbs],
+        testTypes: [TestTypes.SpiritBox, TestTypes.Fingerprints, TestTypes.GhostWriting],
         strengths: ["Can throw many different objects at once"],
         weaknesses: ["Empty rooms"],
         notes: [
@@ -219,7 +228,7 @@ export const GhostTypes = [
         name: "Banshee",
         summary: "Stalks a single individual, crucifix makes it less aggressive.",
         description: `A stalker of its individually chosen prey, a Crucifix nearby a Banshee will make it less aggressive.`,
-        testTypes: [TestTypes.EMF, TestTypes.Fingerprints, TestTypes.Temperature],
+        testTypes: [TestTypes.Fingerprints, TestTypes.GhostOrbs, TestTypes.Dots],
         strengths: ["Target one player at a time"],
         weaknesses: ["Fear of the Crucifix"],
         notes: [
@@ -233,7 +242,7 @@ export const GhostTypes = [
         name: "Jinn",
         summary: "Strong when around electrical power, weak when electrical power is removed.",
         description: `Fast, territorial ghosts.`,
-        testTypes: [TestTypes.SpiritBox, TestTypes.GhostOrbs, TestTypes.EMF],
+        testTypes: [TestTypes.EMF, TestTypes.Fingerprints, TestTypes.Temperature],
         strengths: ["Jinns are faster when players are far away from them"],
         weaknesses: ["Turn off the location’s power source to stop a Jinn from using its ability"],
         notes: [
@@ -245,7 +254,7 @@ export const GhostTypes = [
         name: "Mare",
         summary: "Prefers dark.  More aggressive in the dark, less aggressive in the light.",
         description: `Make sure you turn the lights on as this ghost is stronger in the dark.`,
-        testTypes: [TestTypes.SpiritBox, TestTypes.GhostOrbs, TestTypes.Temperature],
+        testTypes: [TestTypes.SpiritBox, TestTypes.GhostOrbs, TestTypes.GhostWriting],
         strengths: ["Increased chance of attacking in the dark"],
         weaknesses: ["Light sources (turn the lights on, use torches, etc…)"],
         notes: [
@@ -258,7 +267,7 @@ export const GhostTypes = [
         name: "Revenant",
         summary: "Slow when it can't see its victim, fast when it can.",
         description: `A slow, violent ghost that picks up tremendous speed when hunting its prey. Remember to hide.`,
-        testTypes: [TestTypes.EMF, TestTypes.Fingerprints, TestTypes.GhostWriting],
+        testTypes: [TestTypes.GhostOrbs, TestTypes.GhostWriting, TestTypes.Temperature],
         strengths: ["When hunting a victim, it is quick, faster than anything"],
         weaknesses: ["Hiding from a Revenant makes it move very slowly"],
         notes: [
@@ -269,7 +278,7 @@ export const GhostTypes = [
         name: "Shade",
         summary: "Usually doesn't hunt when around multiple people.",
         description: `A shy ghost, make sure to travel in a group.`,
-        testTypes: [TestTypes.EMF, TestTypes.GhostOrbs, TestTypes.GhostWriting],
+        testTypes: [TestTypes.EMF, TestTypes.GhostWriting, TestTypes.Temperature],
         strengths: ["Shyness makes it hard to find"],
         weaknesses: ["If there are multiple players nearby, a Shade will not enter into hunting mode"],
         notes: [],
@@ -278,7 +287,7 @@ export const GhostTypes = [
         name: "Demon",
         summary: "You'll know it",
         description: `Demons are the most aggressive ghost.`,
-        testTypes: [TestTypes.SpiritBox, TestTypes.GhostWriting, TestTypes.Temperature],
+        testTypes: [TestTypes.Fingerprints, TestTypes.GhostWriting, TestTypes.Temperature],
         strengths: ["Demons attack more than any other ghost type"],
         weaknesses: ["Ask Demons successful questions on the Ouija Board. This won’t lower a player’s sanity"],
         notes: [
@@ -289,7 +298,7 @@ export const GhostTypes = [
         name: "Yurei",
         summary: "Drains sanity fast, weak to smudge.",
         description: `Yureis have a big effect on your sanity.`,
-        testTypes: [TestTypes.GhostOrbs, TestTypes.GhostWriting, TestTypes.Temperature],
+        testTypes: [TestTypes.GhostOrbs, TestTypes.Temperature, TestTypes.Dots],
         strengths: ["Strong effect on a player’s sanity"],
         weaknesses: ["Smudge the room of a Yurei to stop it wandering around the location for a long time"],
         notes: [
@@ -300,20 +309,9 @@ export const GhostTypes = [
         name: "Oni",
         summary: "More active when nearby players",
         description: `Another strong ghost that is more active when more players are around it.`,
-        testTypes: [TestTypes.EMF, TestTypes.SpiritBox, TestTypes.GhostWriting],
+        testTypes: [TestTypes.EMF, TestTypes.Temperature, TestTypes.Dots],
         strengths: ["More active when players are nearby", "Can move objects at great speed"],
         weaknesses: ["More active players will make an Oni easier to find and identify"],
-        notes: [
-            ""
-        ],
-    },
-    <GhostType> {
-        name: "Yokai",
-        summary: "A common type of ghost that is attracted to human voices. They can usually be found haunting family homes.",
-        description: ` It has been known to become aggressive towards the players, that being too loud near the ghost. These noises make it very active and could become a reason of the starting Hunt.`,
-        testTypes: [TestTypes.SpiritBox, TestTypes.GhostWriting, TestTypes.GhostOrbs],
-        strengths: ["Talking near a Yokai will anger it and cause it to attack more often."],
-        weaknesses: ["While hunting, it can only hear voices close to it."],
         notes: [
             ""
         ],
@@ -322,9 +320,42 @@ export const GhostTypes = [
         name: "Hantu",
         summary: "A rare ghost that can be found in hot climates. They are known to attack more often in cold weather",
         description: ` its Hunt behaviour dependence on the temperature. Their speed is fully based on the temperature of the rooms it goes through, so the speed change can be observed in the real time.`,
-        testTypes: [TestTypes.Fingerprints, TestTypes.GhostOrbs, TestTypes.SpiritBox],
+        testTypes: [TestTypes.Fingerprints, TestTypes.GhostOrbs, TestTypes.Temperature],
         strengths: ["Hantu moves faster in colder areas."],
         weaknesses: ["Hantu moves slower in warmer areas"],
+        notes: [
+            ""
+        ],
+    },
+    <GhostType> {
+        name: "Yokai",
+        summary: "A common type of ghost that is attracted to human voices. They can usually be found haunting family homes.",
+        description: ` It has been known to become aggressive towards the players, that being too loud near the ghost. These noises make it very active and could become a reason of the starting Hunt.`,
+        testTypes: [TestTypes.SpiritBox, TestTypes.GhostOrbs, TestTypes.Dots],
+        strengths: ["Talking near a Yokai will anger it and cause it to attack more often."],
+        weaknesses: ["While hunting, it can only hear voices close to it."],
+        notes: [
+            ""
+        ],
+    },
+    <GhostType> {
+        name: "Goryo",
+        summary: "Can only be seen using a video camera and D.O.T.S. Projector.",
+        description: ` It tends to stick to a short distance from where it spawns.`,
+        testTypes: [TestTypes.EMF, TestTypes.Fingerprints, TestTypes.Dots],
+        strengths: ["A Goryo will usually only show itself on camera if there are no people nearby."],
+        weaknesses: ["They are rarely seen far from their place of death."],
+        notes: [
+            ""
+        ],
+    },
+    <GhostType> {
+        name: "Myling",
+        summary: "Very noisy ghost",
+        description: ` Tends to be very loud except when it is hunting.`,
+        testTypes: [TestTypes.EMF, TestTypes.Fingerprints, TestTypes.GhostWriting],
+        strengths: ["Quieter while hunting."],
+        weaknesses: ["Makes more paranormal sounds than other ghosts."],
         notes: [
             ""
         ],
