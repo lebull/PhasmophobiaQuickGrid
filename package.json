@@ -1,6 +1,6 @@
 {
   "name": "phasmophobiaquickgrid",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "homepage": "https://www.emffive.com/",
   "dependencies": {
@@ -29,7 +29,7 @@
     "react-dom": "^16.14.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "4.0.0",
     "styled-components": "^5.3.0",
     "typescript": "^3.9.9"
   },
